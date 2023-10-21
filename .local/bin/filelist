@@ -4,32 +4,65 @@ import os
 from sys import argv
 
 
+class Tcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    DARKERGREEN = '\033[32m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
 def main():
-    path = argv[1] if len(argv) > 1 else os.getcwd()
-    print_files_size(path)
+    if len(argv) > 2:
+        print(f"{Tcolors.FAIL}[Error] Too many arguments.{Tcolors.ENDC}")
+        exit(1)
+    path = argv[1] if len(argv) > 1 and argv[1] != '-r' else os.getcwd()
+    reverse = True if '-r' in argv else False
+    print_files_size(path, reverse)
 
 
-def print_files_size(path):
+def print_files_size(path, reverse):
+    files = []
     try:
         directory = os.listdir(path)
     except FileNotFoundError:
-        print(f"[Error] Unable to find that directory: '{os.path.abspath(path)}'")
+        print(f"{Tcolors.FAIL}[Error] Unable to find that directory: '{os.path.abspath(path)}'{Tcolors.ENDC}")
         exit(1)
     except NotADirectoryError:
-        print(f"[Error] Path is not a directory: '{os.path.abspath(path)}'")
+        print(f"{Tcolors.FAIL}[Error] Path is not a directory: '{os.path.abspath(path)}'{Tcolors.ENDC}")
+        exit(1)
+    except PermissionError:
+        print(f"{Tcolors.FAIL}[Error] Permission denied for: '{os.path.abspath(path)}'{Tcolors.ENDC}")
         exit(1)
     else:
-        print(f"|{'-'*237}|\n| ID | {'File':<200} {'Size':>24} | ID |\n|{'-'*237}|")
+        print(f"{Tcolors.HEADER}Scanning....{Tcolors.ENDC}")
         total_size = 0
-        for index, file in enumerate(directory, 1):
-            size = get_dir_size(f'{path}/{file}') if os.path.isdir(f'{path}/{file}') else os.stat(f'{path}/{file}').st_size
+        for file in directory:
+            try:
+                size = get_dir_size(f'{path}/{file}') if os.path.isdir(f'{path}/{file}') else os.stat(f'{path}/{file}').st_size
+            except PermissionError:
+                size = 0
+            except FileNotFoundError:
+                size = 0
+            except OSError:
+                size = 0
             total_size += size
-            size = compact_size(size)
+            compacted_size, color = compact_size(size)
             if os.path.isdir(f'{path}/{file}'):
-                size = f"{'<DIR>':<5} {size:>12}"
-            print(f"| {index:<2} | {file:<184} {size:>40} | {index:>2} |")
-        total_size = compact_size(total_size)
-        print(f"|{'-'*237}|\n| {f'{len(directory)} files/directories found in {os.path.abspath(path)}':<162} {f'Total size: {total_size}':>72} |\n|{'-'*237}|")
+                compacted_size = f"{'<DIR>':<5} {compacted_size:>12}"
+            files.append((file, size, compacted_size, color))
+        files = sorted(files, key=lambda x: x[1], reverse=reverse)
+
+        print(f"{Tcolors.OKBLUE}|{'-'*237}|\n| {Tcolors.OKCYAN}ID {Tcolors.OKBLUE}| {Tcolors.OKCYAN}{'File':<200} {'Size':>24} {Tcolors.OKBLUE}| {Tcolors.OKCYAN}ID {Tcolors.OKBLUE}|\n|{'-'*237}|")
+        for index, (file, size, compacted_size, color) in enumerate(files, 1):
+            print(f"|{color} {index:<2} {Tcolors.OKBLUE}|{color} {file:<184} {compacted_size:>40} {Tcolors.OKBLUE}|{color} {index:>2} {Tcolors.OKBLUE}|")
+        total_size, color = compact_size(total_size)
+        print(f"|{'-'*237}|\n| {f'{len(directory)} files/directories found in {os.path.abspath(path)}':<162} {f'Total size:{color} {total_size}':>77} {Tcolors.OKBLUE}|\n|{'-'*237}|{Tcolors.ENDC}")
 
 
 def get_dir_size(path):
@@ -54,15 +87,27 @@ def get_dir_size(path):
 def compact_size(size):
     if size < 1024:
         size = str(size) + '  B'
+        color = Tcolors.DARKERGREEN
     elif size < 1048576:
         size = str(round(size / 1024, 2)) + ' KB'
+        color = Tcolors.DARKERGREEN
     elif size < 1073741824:
         size = str(round(size / 1048576, 2)) + ' MB'
+        color = Tcolors.DARKERGREEN
+        if int(size.split('.')[0]) >= 50:
+            color = Tcolors.OKGREEN
+        if int(size.split('.')[0]) >= 500:
+            color = Tcolors.WARNING
     elif size < 1099511627776:
         size = str(round(size / 1073741824, 2)) + ' GB'
+        if int(size.split('.')[0]) >= 10:
+            color = Tcolors.FAIL
+        else:
+            color = Tcolors.WARNING
     elif size < 1125899906842624:
         size = str(round(size / 1099511627776, 2)) + ' TB'
-    return size
+        color = Tcolors.FAIL
+    return size, color
 
 
 if __name__ == "__main__":
