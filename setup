@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# Exit if ran using sh
+if [ ! "$BASH_VERSION" ] ; then
+    printf "\033[0;31mPlease run the script using 'bash' instead of 'sh'\033[0m\n"
+    exit
+fi
+
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" || exit ; pwd -P )
+cd "$parent_path" || exit
+
+# ------------------- Config functions -------------------
+
+setup_nvim() {
+    echo -e "\033[0;33mSetting up neovim...\033[0m"
+
+    cp -r .config/nvim ~/.config/
+
+    # Install vim-plug
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+    echo -e "\033[0;32mNeovim setup complete!\033[0m"
+}
+
+setup_zsh() {
+    echo -e "\033[0;33mSetting up zsh...\033[0m"
+
+    cp -r .zsh ~/
+    echo "ZDOTDIR=$HOME/.zsh" >> ~/.zshenv
+
+    echo -e "\033[0;32mzsh setup complete!\033[0m"
+}
+
+setup_bin() {
+    echo -e "\033[0;33mSetting up bin...\033[0m"
+
+    cp -r .local/bin ~/.local/
+
+    echo -e "\033[0;32mbin setup complete!\033[0m"
+}
+
+# ------------------- End of config functions -------------------
+
+# ------------------- Main -------------------
+
+# Menu to choose the config_option
+config_option=$(zenity --list \
+    --title="TiagoRG Dotfiles" \
+    --column="Selected the config option" \
+    "Full setup" \
+    "Neovim" \
+    "zshrc" \
+    "bin" \
+    --width=500 --height=400)
+
+# Check if the user selected an option
+if [ -z "$config_option" ]; then
+    echo -e "\033[0;31mNo option selected. Exiting...\033[0m"
+    exit
+fi
+
+echo -e "\033[0;33mSelected option: $config_option\033[0m"
+
+# Check which option was selected
+case $config_option in
+    "Full setup")
+        setup_nvim
+        setup_zsh
+        setup_bin
+        ;;
+    "Neovim")
+        setup_nvim
+        ;;
+    "zshrc")
+        setup_zsh
+        ;;
+    "bin")
+        setup_bin
+        ;;
+    *)
+        echo -e "\033[0;31mInvalid option. Exiting...\033[0m"
+        exit
+        ;;
+esac
+
+echo -e "\033[0;32mSetup complete!\033[0m"
+# ------------------- End of Main -------------------
