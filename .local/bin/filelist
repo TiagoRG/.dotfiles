@@ -1,0 +1,69 @@
+#!/bin/python3.11
+
+import os
+from sys import argv
+
+
+def main():
+    path = argv[1] if len(argv) > 1 else os.getcwd()
+    print_files_size(path)
+
+
+def print_files_size(path):
+    try:
+        directory = os.listdir(path)
+    except FileNotFoundError:
+        print(f"[Error] Unable to find that directory: '{os.path.abspath(path)}'")
+        exit(1)
+    except NotADirectoryError:
+        print(f"[Error] Path is not a directory: '{os.path.abspath(path)}'")
+        exit(1)
+    else:
+        print(f"|{'-'*237}|\n| ID | {'File':<200} {'Size':>24} | ID |\n|{'-'*237}|")
+        total_size = 0
+        for index, file in enumerate(directory, 1):
+            size = get_dir_size(f'{path}/{file}') if os.path.isdir(f'{path}/{file}') else os.stat(f'{path}/{file}').st_size
+            total_size += size
+            size = compact_size(size)
+            if os.path.isdir(f'{path}/{file}'):
+                size = f"{'<DIR>':<5} {size:>12}"
+            print(f"| {index:<2} | {file:<184} {size:>40} | {index:>2} |")
+        total_size = compact_size(total_size)
+        print(f"|{'-'*237}|\n| {f'{len(directory)} files/directories found in {os.path.abspath(path)}':<162} {f'Total size: {total_size}':>72} |\n|{'-'*237}|")
+
+
+def get_dir_size(path):
+    total = 0
+    try:
+        for file in os.listdir(path):
+            if os.path.isfile(f'{path}/{file}'):
+                total += os.stat(f'{path}/{file}').st_size
+            else:
+                total += get_dir_size(f'{path}/{file}')
+    except PermissionError:
+        return 0
+    except FileNotFoundError:
+        return 0
+    except NotADirectoryError:
+        return 0
+    except OSError:
+        return 0
+    return total
+
+
+def compact_size(size):
+    if size < 1024:
+        size = str(size) + '  B'
+    elif size < 1048576:
+        size = str(round(size / 1024, 2)) + ' KB'
+    elif size < 1073741824:
+        size = str(round(size / 1048576, 2)) + ' MB'
+    elif size < 1099511627776:
+        size = str(round(size / 1073741824, 2)) + ' GB'
+    elif size < 1125899906842624:
+        size = str(round(size / 1099511627776, 2)) + ' TB'
+    return size
+
+
+if __name__ == "__main__":
+    main()
