@@ -1,0 +1,1 @@
+ZDOTDIR=/home/tiagorg/.zsh

@@ -1,0 +1,69 @@
+#!/bin/python
+
+import sys
+import pyotp
+import time
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: totp.py <list|get|regist|calc>")
+        sys.exit(1)
+
+    if sys.argv[1] == "calc":
+        if len(sys.argv) != 3:
+            print("Usage: totp.py calc <secret>")
+            sys.exit(1)
+        print(get_totp_string(sys.argv[2]))
+
+    if sys.argv[1] == "regist":
+        if len(sys.argv) != 4:
+            print("Usage: totp.py regist <name> <secret>")
+            sys.exit(1)
+        try:
+            with open("/root/secrets.txt", "a") as secrets_file:
+                secrets_file.write(f"{sys.argv[2]},{sys.argv[3]}\n")
+        except PermissionError:
+            print("Permission denied")
+            sys.exit(1)
+
+    try:
+        with open("/root/secrets.txt", "r") as secrets_file:
+            secrets_file_lines = secrets_file.readlines()
+            secrets = [(str(i+1), secrets_file_lines[i].split(",")[0], secrets_file_lines[i].split(",")[1]) for i in range(len(secrets_file_lines))]
+
+            if sys.argv[1] == "list":
+                for secret in secrets:
+                    print(f"ID: {secret[0]}\nName: {secret[1]}\n")
+                sys.exit(0)
+
+            if sys.argv[1] == "get":
+                if len(sys.argv) != 3:
+                    print("Usage: totp.py get <secret ID>")
+                    sys.exit(1)
+                for secret in secrets:
+                    if secret[0] == sys.argv[2]:
+                        print(f"Name: {secret[1]}\n{get_totp_string(secret[2].strip())}")
+                        sys.exit(0)
+                found = False
+                for secret in secrets:
+                    if sys.argv[2].lower() in secret[1].lower():
+                        print(f"Name: {secret[1]}\n{get_totp_string(secret[2].strip())}\n")
+                        found = True
+                if not found:
+                    print("Secret not found")
+                    sys.exit(1)
+                sys.exit(0)
+    except PermissionError:
+        print("Permission denied")
+        sys.exit(1)
+
+
+def get_totp_string(secret):
+    totp = pyotp.TOTP(secret)
+    remaining = 30 - int(time.time()) % 30
+    return f"OTP: {totp.now()}\nValid for: {remaining} seconds"
+
+
+if __name__ == '__main__':
+    main()
