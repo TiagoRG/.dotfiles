@@ -62,4 +62,11 @@ return require('packer').startup(function(use)
         -- install jsregexp (optional!:).
         run = "make install_jsregexp"
     })
+
+    use {
+        "FotiadisM/tabset.nvim",
+        config = function()
+            require("tabset").setup()
+        end
+    }
 end)
