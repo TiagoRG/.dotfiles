@@ -28,7 +28,10 @@ setup_zsh() {
 
     cp -r .zsh ~/
     echo "ZDOTDIR=$HOME/.zsh" >> ~/.zshenv
-
+    
+    sudo chsh tiagorg --shell=/bin/zsh
+    sudo chsh root --shell=/bin/zsh
+    
     echo -e "\033[0;32mzsh setup complete!\033[0m"
 }
 

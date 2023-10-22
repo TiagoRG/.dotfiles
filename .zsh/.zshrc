@@ -1,6 +1,9 @@
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
+echo ""
+pfetch
+
 setopt autocd              # change directory just by typing its name
 setopt correct             # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
@@ -51,7 +54,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
-HISTFILE=/home/tiagorg/.dotfiles/zsh/.zsh_history
+HISTFILE=/home/tiagorg/.zsh/.zsh_history
 HISTSIZE=500000
 SAVEHIST=500000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -114,6 +117,7 @@ configure_prompt() {
             RPROMPT=
             ;;
     esac
+    echo -e -n "\x1b[\x35 q"
     unset prompt_symbol
 }
 
@@ -209,7 +213,7 @@ precmd() {
     # Print a new line before the prompt, but only if it is not the first line
     if [ "$NEWLINE_BEFORE_PROMPT" = yes ]; then
         if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
-            _NEW_LINE_BEFORE_PROMPT=1
+            _NEW_LINE_BEFORE_PROMPT=0
         else
             print ""
         fi
@@ -278,6 +282,8 @@ alias autoremove='sudo pacman -Qqd | sudo pacman -Rsu - && flatpak uninstall --u
 alias c='clear'
 alias r='cd && reset'
 alias repos='cd /home/tiagorg/repos/'
+alias sus='su'
+alias s='sudo'
 
 # uaveiro-leci repository
 alias ua='cd /home/tiagorg/repos/uaveiro-leci'
