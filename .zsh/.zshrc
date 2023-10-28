@@ -1,7 +1,10 @@
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
+/bin/clear
 echo ""
+echo -e -n "\x1b[\x35 q"
+echo "y" > ~/.zsh/.zsh_clear
 pfetch
 
 setopt autocd              # change directory just by typing its name
@@ -117,7 +120,6 @@ configure_prompt() {
             RPROMPT=
             ;;
     esac
-    echo -e -n "\x1b[\x35 q"
     unset prompt_symbol
 }
 
@@ -212,8 +214,8 @@ precmd() {
 
     # Print a new line before the prompt, but only if it is not the first line
     if [ "$NEWLINE_BEFORE_PROMPT" = yes ]; then
-        if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
-            _NEW_LINE_BEFORE_PROMPT=0
+        if [ "$(cat ~/.zsh/.zsh_clear)" = "y" ]; then
+            echo "n" > ~/.zsh/.zsh_clear
         else
             print ""
         fi
@@ -279,11 +281,13 @@ alias zshrc='vim /home/tiagorg/.zsh/.zshrc'
 # improved system commands
 alias update='yay -Syu --noconfirm && flatpak update -y'
 alias autoremove='sudo pacman -Qqd | sudo pacman -Rsu - && flatpak uninstall --unused -y'
+alias clear='echo "y" > ~/.zsh/.zsh_clear && source ~/.zsh/.zshrc'
 alias c='clear'
-alias r='cd && reset'
+alias ref='echo -e -n "\x1b[\x35 q"'
 alias repos='cd /home/tiagorg/repos/'
 alias sus='su'
 alias s='sudo'
+alias grepf='grep -srniIE'
 
 # uaveiro-leci repository
 alias ua='cd /home/tiagorg/repos/uaveiro-leci'
@@ -293,8 +297,6 @@ alias aed='$HOME/repos/uaveiro-leci/2ano/1semestre/aed/setup.sh'
 # ua vpn/ssh server
 alias vpn='snx -s go.ua.pt -u tiago.rgarcia@ua.pt'
 alias vpnd='snx -d'
-
-alias commit='commit -s'
 
 source /home/tiagorg/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/tiagorg/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
