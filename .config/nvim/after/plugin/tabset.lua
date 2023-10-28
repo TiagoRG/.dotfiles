@@ -4,15 +4,18 @@ require("tabset").setup({
         expandtab = true
     },
     languages = {
-        asm = {
-            tabwidth = 8,
-            expandtab = false
-        },
         {
-            filetypes = { "html", "json", "yaml" },
+            filetypes = { "html", "json", "yaml", "xml" },
             config = {
                 tabwidth = 2
             }
-        }
+        },
+        {
+            filetypes = { "asm" },
+            config = {
+                tabwidth = 8,
+                expandtab = false
+            }
+        },
     }
 })
