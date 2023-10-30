@@ -271,8 +271,10 @@ fi
 # ALL EDITORS CRINGE!
 # NEOVIM FOR THE WIN!
 export EDITOR=nvim
-#alias vim='gnome-terminal --maximize --title "Neovim" -- nvim'
 alias vim='nvim'
+
+#alias vim='gnome-terminal --maximize --title "Neovim" -- nvim'
+
 
 # Custom made alias
 
