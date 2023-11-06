@@ -22,6 +22,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
+vim.opt.guitablabel = "\\[%N\\]\\ %t\\ %M"
 
 vim.opt.updatetime = 50
 

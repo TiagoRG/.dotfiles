@@ -62,7 +62,7 @@ def print_files_size(path, reverse):
         for index, (file, size, compacted_size, color) in enumerate(files, 1):
             print(f"|{color} {index:<2} {Tcolors.OKBLUE}|{color} {file:<184} {compacted_size:>40} {Tcolors.OKBLUE}|{color} {index:>2} {Tcolors.OKBLUE}|")
         total_size, color = compact_size(total_size)
-        print(f"|{'-'*237}|\n| {f'{len(directory)} files/directories found in {os.path.abspath(path)}':<162} {f'Total size:{color} {total_size}':>77} {Tcolors.OKBLUE}|\n|{'-'*237}|{Tcolors.ENDC}")
+        print(f"|{'-'*237}|\n| {Tcolors.OKCYAN}{f'{len(directory)} files/directories found in {os.path.abspath(path)}':<162} {f'Total size:{color} {total_size}':>77} {Tcolors.OKBLUE}|\n|{'-'*237}|{Tcolors.ENDC}")
 
 
 def get_dir_size(path):

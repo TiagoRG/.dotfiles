@@ -14,11 +14,13 @@ cd "$parent_path" || exit
 setup_nvim() {
     echo -e "\033[0;33mSetting up neovim...\033[0m"
 
-    cp -r .config/nvim ~/.config/
+    sudo pacman -S neovim
 
-    # Install vim-plug
+    # Install packer.nvim
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
         ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+    git submodule update --init .config/nvim/pack/github/start/copilot.vim
 
     echo -e "\033[0;32mNeovim setup complete!\033[0m"
 }
@@ -26,21 +28,19 @@ setup_nvim() {
 setup_zsh() {
     echo -e "\033[0;33mSetting up zsh...\033[0m"
 
-    cp -r .zsh ~/
-    echo "ZDOTDIR=$HOME/.zsh" >> ~/.zshenv
+    git submodule update --init .zsh/zsh-autosuggestions
+    git submodule update --init .zsh/zsh-syntax-highlighting
     
-    sudo chsh tiagorg --shell=/bin/zsh
-    sudo chsh root --shell=/bin/zsh
+    sudo pacman -S zsh
+
+    sudo chsh tiagorg --shell=/usr/bin/zsh
+    sudo chsh root --shell=/usr/bin/zsh
     
     echo -e "\033[0;32mzsh setup complete!\033[0m"
 }
 
-setup_bin() {
-    echo -e "\033[0;33mSetting up bin...\033[0m"
-
-    cp -r .local/bin ~/.local/
-
-    echo -e "\033[0;32mbin setup complete!\033[0m"
+setup_gnome_shell() {
+    dconf load /org/gnome/shell/ < ~/.config/dconf/gnome-shell.dconf.bak
 }
 
 # ------------------- End of config functions -------------------
@@ -54,7 +54,7 @@ config_option=$(zenity --list \
     "Full setup" \
     "Neovim" \
     "zshrc" \
-    "bin" \
+    "gnome-shell" \
     --width=500 --height=400)
 
 # Check if the user selected an option
@@ -70,7 +70,7 @@ case $config_option in
     "Full setup")
         setup_nvim
         setup_zsh
-        setup_bin
+        setup_gnome_shell
         ;;
     "Neovim")
         setup_nvim
@@ -78,8 +78,8 @@ case $config_option in
     "zshrc")
         setup_zsh
         ;;
-    "bin")
-        setup_bin
+    "gnome-shell")
+        setup_gnome_shell
         ;;
     *)
         echo -e "\033[0;31mInvalid option. Exiting...\033[0m"
