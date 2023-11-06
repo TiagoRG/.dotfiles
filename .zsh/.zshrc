@@ -282,7 +282,7 @@ alias zshrc='vim /home/tiagorg/.zsh/.zshrc'
 
 # improved system commands
 alias update='yay -Syu --noconfirm && flatpak update -y'
-alias autoremove='sudo pacman -Qqd | sudo pacman -Rsu - && flatpak uninstall --unused -y'
+alias autoremove='yay -Qqd | yay -Runs - && flatpak uninstall --unused -y'
 alias clear='echo "y" > ~/.zsh/.zsh_clear && source ~/.zsh/.zshrc'
 alias c='clear'
 alias ref='echo -e -n "\x1b[\x35 q"'

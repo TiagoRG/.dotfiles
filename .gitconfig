@@ -1,0 +1,18 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = tiago.rgarcia@ua.pt
+	name = TiagoRG
+	signingkey = DFCD48E3F420DB42!
+[core]
+    editor = nvim
+[alias]
+    commit = commit -S
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true

@@ -20,6 +20,12 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme rose-pine')
         end
     })
+    use {
+        "loctvl842/monokai-pro.nvim",
+        config = function()
+            require("monokai-pro").setup()
+        end
+    }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('theprimeagen/harpoon')
@@ -53,7 +59,6 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
-
     use({
         "L3MON4D3/LuaSnip",
         -- follow latest release.
@@ -61,11 +66,20 @@ return require('packer').startup(function(use)
         -- install jsregexp (optional!:).
         run = "make install_jsregexp"
     })
-
     use {
         "FotiadisM/tabset.nvim",
         config = function()
             require("tabset").setup()
         end
     }
+    use('nvim-tree/nvim-web-devicons')
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+    }
+    use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+    use 'romgrk/barbar.nvim'
+    use { "akinsho/toggleterm.nvim", tag = '*' }
 end)
