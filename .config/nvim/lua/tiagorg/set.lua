@@ -28,4 +28,7 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "0"
 
+vim.g.copilot_node_command = "/usr/bin/nodenv"
+vim.g.copilot_assume_mapped = true
+
 vim.g.mapleader = " "

@@ -40,7 +40,4 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 vim.keymap.set("n", "<C-q>", "<cmd>qa<CR>")
---vim.keymap.set("n", "<C-q>", "<cmd>tabclose<CR>")
---vim.keymap.set("n", "<A-Right>", "gt")
---vim.keymap.set("n", "<A-Left>", "<cmd>tabprevious<CR>")
---vim.keymap.set("n", "<C-t>", "<cmd>tabnew<CR><cmd>NvimTreeFocus<CR>")
+vim.keymap.set("n", "<A-t>", "<cmd>tabnew<CR><cmd>NvimTreeFocus<CR>")
