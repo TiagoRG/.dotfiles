@@ -16,9 +16,9 @@ return require('packer').startup(function(use)
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
+        --config = function()
+        --    vim.cmd('colorscheme rose-pine')
+        --end
     })
     use {
         "loctvl842/monokai-pro.nvim",
@@ -30,16 +30,10 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
-    use('tpope/vim-fugitive')
     use('wakatime/vim-wakatime')
     use('andweeb/presence.nvim')
     use('m4xshen/autoclose.nvim')
-    use({
-        "andrewferrier/wrapping.nvim",
-        config = function()
-            require("wrapping").setup()
-        end,
-    })
+    use("andrewferrier/wrapping.nvim")
     use "lukas-reineke/indent-blankline.nvim"
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -82,4 +76,22 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
     use 'romgrk/barbar.nvim'
     use { "akinsho/toggleterm.nvim", tag = '*' }
+    use 'folke/flash.nvim'
+    use({
+        'numToStr/Comment.nvim',
+        require('Comment').setup()
+    })
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    }
 end)
