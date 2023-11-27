@@ -1,14 +1,14 @@
 require("toggleterm").setup {
     size = function(term)
         if term.direction == "horizontal" then
-            return 15
+            return 20
         elseif term.direction == "vertical" then
             return vim.o.columns * 0.4
         end
     end,
 
     hide_numbers = true,
-    persist_size = true,
+    persist_size = false,
     persist_mode = true,
     close_on_exit = true,
     auto_scroll = true,
@@ -16,13 +16,21 @@ require("toggleterm").setup {
 
     float_opts = {
         border = 'curved',
-        width = 200,
-        height = 20,
+        width = 225,
+        height = 50,
         winblend = 3,
         zindex = 50,
     },
 
     direction = 'horizontal'
+    --direction = 'float'
 }
 
+-- ToggleTerm non terminal mode keybinds
 vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<CR>")
+vim.keymap.set("n", "<leader>vl", "<cmd>ToggleTermCurrentLine<CR>")
+vim.keymap.set("n", "<leader>vv", "<cmd>ToggleTermVisualLines<CR>")
+vim.keymap.set("n", "<leader>vs", "<cmd>ToggleTermVisualSelection<CR>")
+
+-- ToggleTerm terminal mode keybinds
+vim.keymap.set("t", "<esc>", "<C-\\><C-n>")

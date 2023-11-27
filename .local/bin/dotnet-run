@@ -10,9 +10,5 @@ dotnet build "$1"
 clear
 if [ $# -eq 1 ]; then
     dotnet run --project "$1"
-    exit 0
 else
-    dotnet run --project "$1" "$(for i in $(seq 2 $#) ; do
-        printf "%s" "${!i} "
-    done)"
-fi
+    dotnet run --project "$@"
