@@ -1,6 +1,15 @@
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
+# ALL EDITORS CRINGE!
+# NEOVIM FOR THE WIN!
+export EDITOR=nvim
+alias vim='nvim'
+alias v='vim .'
+alias vi='/usr/bin/vim'
+
+export PF_INFO="ascii title os shell editor pkgs uptime memory"
+
 /bin/clear
 echo ""
 echo -e -n "\x1b[\x35 q"
@@ -107,9 +116,9 @@ configure_prompt() {
     [ "$EUID" -eq 0 ] && prompt_symbol=💀
     case "$PROMPT_ALTERNATIVE" in
         twoline)
-            PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+		    PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+		    #PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]-(%B%F{%(#.red.red)}$(git branch 2>/dev/null | grep "*" | colrm 1 2)%b%F{%(#.blue.green)})\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
             # Right-side prompt with exit codes and background processes
-            #RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
             ;;
         oneline)
             PROMPT=$'${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{%(#.red.blue)}%n@%m%b%F{reset}:%B%F{%(#.blue.green)}%~%b%F{reset}%(#.#.$) '
@@ -268,29 +277,20 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 
-# ALL EDITORS CRINGE!
-# NEOVIM FOR THE WIN!
-export EDITOR=nvim
-alias vim='nvim'
-alias v='vim .'
-
-#alias vim='gnome-terminal --maximize --title "Neovim" -- nvim'
-
-
 # Custom made alias
 
 alias zshrc='vim /home/tiagorg/.zsh/.zshrc'
 
 # improved system commands
 alias update='yay -Syu --noconfirm && flatpak update -y'
-alias autoremove='yay -Qqd | yay -Runs - && flatpak uninstall --unused -y'
+alias autoremove='yay -Qqd | yay -Runs --noconfirm - && flatpak remove --delete-data --unused -y'
 alias clear='echo "y" > ~/.zsh/.zsh_clear && source ~/.zsh/.zshrc'
 alias c='clear'
 alias ref='echo -e -n "\x1b[\x35 q"'
 alias repos='cd /home/tiagorg/repos/'
 alias sus='su'
 alias s='sudo'
-alias grepf='grep -srniIE'
+alias grepf='grep -sirnIE'
 
 # uaveiro-leci repository
 alias ua='cd /home/tiagorg/repos/uaveiro-leci'

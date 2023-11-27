@@ -26,6 +26,11 @@ return require('packer').startup(function(use)
             require("monokai-pro").setup()
         end
     }
+    use 'navarasu/onedark.nvim'
+    use {
+        'daltonmenezes/aura-theme',
+        rtp = 'packages/neovim'
+    }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('theprimeagen/harpoon')
@@ -33,8 +38,14 @@ return require('packer').startup(function(use)
     use('wakatime/vim-wakatime')
     use('andweeb/presence.nvim')
     use('m4xshen/autoclose.nvim')
-    use("andrewferrier/wrapping.nvim")
+    use({
+        "andrewferrier/wrapping.nvim",
+        config = function()
+            require("wrapping").setup()
+        end
+    })
     use "lukas-reineke/indent-blankline.nvim"
+    use "HiPhish/nvim-ts-rainbow2"
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -79,7 +90,6 @@ return require('packer').startup(function(use)
     use 'folke/flash.nvim'
     use({
         'numToStr/Comment.nvim',
-        require('Comment').setup()
     })
     use({
         "kylechui/nvim-surround",
