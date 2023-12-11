@@ -33,11 +33,16 @@ return require('packer').startup(function(use)
     }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use('theprimeagen/harpoon')
     use('mbbill/undotree')
     use('wakatime/vim-wakatime')
     use('andweeb/presence.nvim')
     use('m4xshen/autoclose.nvim')
+    use({
+        'windwp/nvim-ts-autotag',
+        config = function ()
+            require('nvim-ts-autotag').setup()
+        end
+    })
     use({
         "andrewferrier/wrapping.nvim",
         config = function()
@@ -104,4 +109,10 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
+    use({
+        "stevearc/aerial.nvim",
+        config = function()
+            require("aerial").setup()
+        end,
+    })
 end)

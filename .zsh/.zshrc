@@ -282,7 +282,7 @@ fi
 alias zshrc='vim /home/tiagorg/.zsh/.zshrc'
 
 # improved system commands
-alias update='yay -Syu --noconfirm && flatpak update -y'
+alias update='yay -Syyu && flatpak update -y'
 alias autoremove='yay -Qqd | yay -Runs --noconfirm - && flatpak remove --delete-data --unused -y'
 alias clear='echo "y" > ~/.zsh/.zsh_clear && source ~/.zsh/.zshrc'
 alias c='clear'
@@ -291,6 +291,7 @@ alias repos='cd /home/tiagorg/repos/'
 alias sus='su'
 alias s='sudo'
 alias grepf='grep -sirnIE'
+alias tl='telnet localhost'
 
 # uaveiro-leci repository
 alias ua='cd /home/tiagorg/repos/uaveiro-leci'

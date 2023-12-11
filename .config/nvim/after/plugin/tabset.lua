@@ -17,5 +17,12 @@ require("tabset").setup({
                 expandtab = false
             }
         },
+        {
+            filetypes = { "Makefile", "make" },
+            config = {
+                tabwidth = 4,
+                expandtab = false
+            }
+        }
     }
 })

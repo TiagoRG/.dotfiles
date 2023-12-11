@@ -20,7 +20,7 @@ require('lualine').setup {
     sections = {
         lualine_a = { 'fileformat', 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
+        lualine_c = { 'filename', 'aerial' },
         lualine_x = { 'filesize', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'selectioncount', 'location' }
