@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>m", "<cmd>!make<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/tiagorg/packer.lua<CR>");
 
-vim.keymap.set("n", "<leader><leader>", function()
+vim.keymap.set("n", "<leader>so", function()
     vim.cmd("so")
 end)
 
