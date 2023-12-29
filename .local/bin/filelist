@@ -58,11 +58,13 @@ def print_files_size(path, reverse):
             files.append((file, size, compacted_size, color))
         files = sorted(files, key=lambda x: x[1], reverse=reverse)
 
-        print(f"{Tcolors.OKBLUE}|{'-'*237}|\n| {Tcolors.OKCYAN}ID {Tcolors.OKBLUE}| {Tcolors.OKCYAN}{'File':<200} {'Size':>24} {Tcolors.OKBLUE}| {Tcolors.OKCYAN}ID {Tcolors.OKBLUE}|\n|{'-'*237}|")
+        print(f"{Tcolors.OKBLUE}|{'-'*(os.get_terminal_size().columns-3)}|\n| {Tcolors.OKCYAN}ID   {Tcolors.OKBLUE} | {Tcolors.OKCYAN}'File'{' '*(os.get_terminal_size().columns-31)}Size{Tcolors.OKBLUE} | {Tcolors.OKCYAN}   ID{Tcolors.OKBLUE} |\n|{'-'*(os.get_terminal_size().columns-3)}|")
         for index, (file, size, compacted_size, color) in enumerate(files, 1):
-            print(f"|{color} {index:<2} {Tcolors.OKBLUE}|{color} {file:<184} {compacted_size:>40} {Tcolors.OKBLUE}|{color} {index:>2} {Tcolors.OKBLUE}|")
+            print(f"| {color}{index:<5}{Tcolors.OKBLUE} | {color}{file}{' '*(os.get_terminal_size().columns-len(file)-len(compacted_size)-21)}{compacted_size}{Tcolors.OKBLUE} | {color}{index:>5}{Tcolors.OKBLUE} |")
         total_size, color = compact_size(total_size)
-        print(f"|{'-'*237}|\n| {Tcolors.OKCYAN}{f'{len(directory)} files/directories found in {os.path.abspath(path)}':<162} {f'Total size:{color} {total_size}':>77} {Tcolors.OKBLUE}|\n|{'-'*237}|{Tcolors.ENDC}")
+        path_info = f"{len(directory)} files/directories found in {os.path.abspath(path)}"
+        path_size_info = f"Total size: {color}{total_size}"
+        print(f"|{'-'*(os.get_terminal_size().columns-3)}|\n| {Tcolors.OKCYAN}{path_info}{' '*(os.get_terminal_size().columns-len(path_info)-len(path_size_info))}{path_size_info}{Tcolors.OKBLUE} |\n|{'-'*(os.get_terminal_size().columns-3)}|{Tcolors.ENDC}")
 
 
 def get_dir_size(path):
@@ -104,7 +106,8 @@ def compact_size(size):
             color = Tcolors.FAIL
         else:
             color = Tcolors.WARNING
-    elif size < 1125899906842624:
+    # elif size < 1125899906842624:
+    else:
         size = str(round(size / 1099511627776, 2)) + ' TB'
         color = Tcolors.FAIL
     return size, color

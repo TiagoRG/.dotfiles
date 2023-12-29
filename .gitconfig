@@ -10,6 +10,7 @@
 	signingkey = DFCD48E3F420DB42!
 [core]
     editor = nvim
+	excludesfile = /home/tiagorg/.gitignore
 [alias]
     commit = commit -S
 [commit]
