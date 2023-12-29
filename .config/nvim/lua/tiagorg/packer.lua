@@ -7,50 +7,26 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Themes
+    use {
+        "loctvl842/monokai-pro.nvim", -- Fking goated theme
+        config = function()
+            require("monokai-pro").setup()
+        end
+    }
+    use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+    })
+
+    -- Essentials
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        --config = function()
-        --    vim.cmd('colorscheme rose-pine')
-        --end
-    })
-    use {
-        "loctvl842/monokai-pro.nvim",
-        config = function()
-            require("monokai-pro").setup()
-        end
-    }
-    use 'navarasu/onedark.nvim'
-    use {
-        'daltonmenezes/aura-theme',
-        rtp = 'packages/neovim'
-    }
-
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use('mbbill/undotree')
-    use('wakatime/vim-wakatime')
-    use('andweeb/presence.nvim')
-    use('m4xshen/autoclose.nvim')
-    use({
-        'windwp/nvim-ts-autotag',
-        config = function ()
-            require('nvim-ts-autotag').setup()
-        end
-    })
-    use({
-        "andrewferrier/wrapping.nvim",
-        config = function()
-            require("wrapping").setup()
-        end
-    })
-    use "lukas-reineke/indent-blankline.nvim"
-    use "HiPhish/nvim-ts-rainbow2"
+    use("nvim-treesitter/nvim-treesitter-context")
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -76,6 +52,25 @@ return require('packer').startup(function(use)
         -- install jsregexp (optional!:).
         run = "make install_jsregexp"
     })
+    use({
+        "stevearc/aerial.nvim",
+        config = function()
+            require("aerial").setup()
+        end,
+    })
+    use('m4xshen/autoclose.nvim')
+
+    -- Extras
+    use('mbbill/undotree')
+    use({
+        "andrewferrier/wrapping.nvim",
+        config = function()
+            require("wrapping").setup()
+        end
+    })
+    use "lukas-reineke/indent-blankline.nvim"
+    use "HiPhish/nvim-ts-rainbow2"
+    use "folke/trouble.nvim"
     use {
         "FotiadisM/tabset.nvim",
         config = function()
@@ -89,13 +84,10 @@ return require('packer').startup(function(use)
             'nvim-tree/nvim-web-devicons', -- optional
         },
     }
-    use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+    use 'lewis6991/gitsigns.nvim'
     use 'romgrk/barbar.nvim'
     use { "akinsho/toggleterm.nvim", tag = '*' }
-    use 'folke/flash.nvim'
-    use({
-        'numToStr/Comment.nvim',
-    })
+    use 'numToStr/Comment.nvim'
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -109,10 +101,12 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
-    use({
-        "stevearc/aerial.nvim",
-        config = function()
-            require("aerial").setup()
-        end,
-    })
+
+    -- Misc
+    use('wakatime/vim-wakatime')
+    use('andweeb/presence.nvim')
+
+
+    -- Little friend
+    use("github/copilot.vim")
 end)

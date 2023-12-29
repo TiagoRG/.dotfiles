@@ -5,7 +5,7 @@
 # NEOVIM FOR THE WIN!
 export EDITOR=nvim
 alias vim='nvim'
-alias v='vim .'
+alias v='vim . && ref'
 alias vi='/usr/bin/vim'
 
 export PF_INFO="ascii title os shell editor pkgs uptime memory"
@@ -282,7 +282,7 @@ fi
 alias zshrc='vim /home/tiagorg/.zsh/.zshrc'
 
 # improved system commands
-alias update='yay -Syyu && flatpak update -y'
+alias update='yay -Syu && flatpak update -y'
 alias autoremove='yay -Qqd | yay -Runs --noconfirm - && flatpak remove --delete-data --unused -y'
 alias clear='echo "y" > ~/.zsh/.zsh_clear && source ~/.zsh/.zshrc'
 alias c='clear'
@@ -296,11 +296,11 @@ alias tl='telnet localhost'
 # uaveiro-leci repository
 alias ua='cd /home/tiagorg/repos/uaveiro-leci'
 alias ua-gi='nvim /home/tiagorg/repos/uaveiro-leci/.git/info/exclude'
-alias aed='$HOME/repos/uaveiro-leci/2ano/1semestre/aed/setup.sh'
+alias aed='/home/tiagorg/repos/uaveiro-leci/2ano/1semestre/aed/setup.sh'
 
 # ua vpn/ssh server
-alias vpn='snx -s go.ua.pt -u tiago.rgarcia@ua.pt'
-alias vpnd='snx -d'
+alias vpn='sudo snx -s go.ua.pt -u tiago.rgarcia@ua.pt'
+alias vpnd='sudo snx -d'
 
 source /home/tiagorg/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/tiagorg/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
