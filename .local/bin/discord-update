@@ -1,0 +1,7 @@
+#!/bin/bash
+
+wget "https://discord.com/api/download/stable?platform=linux&format=tar.gz" -O /tmp/discord.tar.gz
+tar -xvf "/tmp/discord.tar.gz" -C "/tmp/"
+rm -rf "$HOME/.discord"
+mv "/tmp/Discord" "$HOME/.discord"
+betterdiscord-installer

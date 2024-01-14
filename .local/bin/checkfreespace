@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    mount_point="/"
+else
+    mount_point="$1"
+fi
+
+read -ra space_info_arr <<< "$(df "$mount_point" -h | grep "/")"
+free_space="${space_info_arr[3]}"
+
+echo "$free_space"
