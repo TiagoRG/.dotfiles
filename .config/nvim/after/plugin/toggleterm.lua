@@ -16,8 +16,8 @@ require("toggleterm").setup {
 
     float_opts = {
         border = 'curved',
-        width = vim.o.columns * 0.8,
-        height = vim.o.lines * 0.8,
+        width = math.abs(math.floor(vim.o.columns * 0.8 + 0.5)),
+        height = math.abs(math.floor(vim.o.lines * 0.8 + 0.5)),
         winblend = 3,
         zindex = 50,
     },
