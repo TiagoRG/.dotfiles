@@ -14,10 +14,12 @@ return require('packer').startup(function(use)
             require("monokai-pro").setup()
         end
     }
-    use({
+    use {
         'rose-pine/neovim',
         as = 'rose-pine',
-    })
+    }
+    use 'olimorris/onedarkpro.nvim'
+    use 'Mofiqul/vscode.nvim'
 
     -- Essentials
     use {

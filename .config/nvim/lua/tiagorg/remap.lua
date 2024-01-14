@@ -7,7 +7,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<Tab>", ">gv")
 vim.keymap.set("v", "<S-Tab>", "<gv")
 
-vim.keymap.set("n", "X", "@@", { noremap = true, silent = true })
+vim.keymap.set("n", "Q", "@@", { noremap = true, silent = true })
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -24,7 +24,6 @@ vim.keymap.set("n", "<leader>df", "<cmd>AerialPrev<CR>V$%d")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader>af", "ggVG")
@@ -37,16 +36,17 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>X", "<cmd>!chmod -x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>m", "<cmd>!make<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/tiagorg/packer.lua<CR>");
-
-vim.keymap.set("n", "<leader>so", function()
-    vim.cmd("so")
-end)
+vim.keymap.set("n", "<leader>vpp", "<cmd>so ~/.config/nvim/lua/tiagorg/packer.lua<CR>");
 
 vim.keymap.set("n", "<C-q>", "<cmd>qa<CR>")
 vim.keymap.set("n", "<A-t>", "<cmd>tabnew<CR><cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<S-Tab>", "<C-w>w")
+
+vim.api.nvim_exec([[
+    augroup SearchHighlight
+        autocmd!
+        autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :nohls<CR>
+    augroup END
+]], false)

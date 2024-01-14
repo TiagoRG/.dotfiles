@@ -279,7 +279,7 @@ fi
 
 # Custom made alias
 
-alias zshrc='vim /home/tiagorg/.zsh/.zshrc'
+alias zshrc='vim /home/tiagorg/.zsh/.zshrc && ref'
 
 # improved system commands
 alias update='yay -Syu && flatpak update -y'
@@ -292,6 +292,8 @@ alias sus='su'
 alias s='sudo'
 alias grepf='grep -sirnIE'
 alias tl='telnet localhost'
+alias py='python'
+alias core='echo "core.%e.%p" | sudo tee /proc/sys/kernel/core_pattern'
 
 # uaveiro-leci repository
 alias ua='cd /home/tiagorg/repos/uaveiro-leci'
@@ -301,6 +303,8 @@ alias aed='/home/tiagorg/repos/uaveiro-leci/2ano/1semestre/aed/setup.sh'
 # ua vpn/ssh server
 alias vpn='sudo snx -s go.ua.pt -u tiago.rgarcia@ua.pt'
 alias vpnd='sudo snx -d'
+
+alias liveshare-nvim='/home/tiagorg/.local/share/nvim/site/pack/packer/start/liveshare.nvim'
 
 source /home/tiagorg/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/tiagorg/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
