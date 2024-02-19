@@ -111,4 +111,17 @@ return require('packer').startup(function(use)
 
     -- Little friend
     use("github/copilot.vim")
+
+    -- trying out
+    use 'lervag/vimtex'
+    use {
+        'jackMort/ChatGPT.nvim',
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    }
+
+    use 'TiagoRG/liveshare.nvim'
 end)
