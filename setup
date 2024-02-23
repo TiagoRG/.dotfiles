@@ -40,10 +40,6 @@ setup_zsh() {
     echo -e "\033[0;32mzsh setup complete!\033[0m"
 }
 
-setup_gnome_shell() {
-    dconf load /org/gnome/shell/ < ~/.config/dconf/gnome-shell.dconf.bak
-}
-
 # ------------------- End of config functions -------------------
 
 # ------------------- Main -------------------
@@ -55,7 +51,6 @@ config_option=$(zenity --list \
     "Full setup" \
     "Neovim" \
     "zshrc" \
-    "gnome-shell" \
     --width=500 --height=400)
 
 # Check if the user selected an option
