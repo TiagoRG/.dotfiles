@@ -39,9 +39,3 @@ augroup SearchHighlight
     autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :nohls<CR>
 augroup END
 
-augroup CursorShape
-    autocmd!
-    autocmd VimEnter,InsertEnter * set guicursor=n-v-c:block-Cursor/lCursor
-    autocmd InsertLeave * set guicursor=n-v-c:ver25-Cursor/lCursor
-augroup END
-

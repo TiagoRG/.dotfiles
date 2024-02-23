@@ -283,7 +283,7 @@ alias zshrc='vim /home/tiagorg/.zsh/.zshrc && ref'
 
 # improved system commands
 alias update='yay -Syu && flatpak update -y'
-alias autoremove='yay -Qqd | yay -Runs --noconfirm - && flatpak remove --delete-data --unused -y'
+alias autoremove='yay -Qqd | yay -Runs - && flatpak remove --delete-data --unused'
 alias clear='echo "y" > ~/.zsh/.zsh_clear && source ~/.zsh/.zshrc'
 alias c='clear'
 alias ref='echo -e -n "\x1b[\x35 q"'
@@ -299,16 +299,27 @@ alias core='echo "core.%e.%p" | sudo tee /proc/sys/kernel/core_pattern'
 alias ua='cd /home/tiagorg/repos/uaveiro-leci'
 alias ua-gi='nvim /home/tiagorg/repos/uaveiro-leci/.git/info/exclude'
 alias aed='/home/tiagorg/repos/uaveiro-leci/2ano/1semestre/aed/setup.sh'
+alias pclean='ls | grep -P "^.+\.(o|elf|map|sym)$" | xargs -d"\n" rm'
 
 # ua vpn/ssh server
 alias vpn='sudo snx -s go.ua.pt -u tiago.rgarcia@ua.pt'
 alias vpnd='sudo snx -d'
 
-alias liveshare-nvim='/home/tiagorg/.local/share/nvim/site/pack/packer/start/liveshare.nvim'
-
 source /home/tiagorg/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/tiagorg/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999999'
 
-# Set up path to check dotfiles bin directory
-export PATH=$HOME/.local/bin:$PATH
+
+if [ -d /opt/pic32mx/bin ] ; then
+    export PATH=$PATH:/opt/pic32mx/bin
+fi
+
+eval "$(zoxide init --cmd cd zsh)"
+
+# Set up path to check personal bin, include and lib directory
+export PATH=/home/tiagorg/.local/bin:$PATH
+export CPATH=/home/tiagorg/.local/include:/opt/pic32mx/include:$CPATH
+# For C only: C_INCLUDE_PATH
+# For C++ only: CPLUS_INCLUDE_PATH
+# For Obj-C: OBJC_INCLUDE_PATH
+export LIBRARY_PATH=/home/tiagorg/.local/lib:$LIBRARY_PATH
