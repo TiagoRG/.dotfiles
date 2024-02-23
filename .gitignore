@@ -1,1 +1,14 @@
+*
+!.gitignore
+!.config/nvim/**/*
+!.local/bin/**/*
+!.zsh/**/*
+!.clang-format
+!.gitconfig
+!.gitmodules
+!.vimrc
+!.zshenv
+!README.md
+!setup
+
 .idea
