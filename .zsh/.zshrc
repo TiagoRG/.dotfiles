@@ -323,3 +323,5 @@ export CPATH=/home/tiagorg/.local/include:/opt/pic32mx/include:$CPATH
 # For C++ only: CPLUS_INCLUDE_PATH
 # For Obj-C: OBJC_INCLUDE_PATH
 export LIBRARY_PATH=/home/tiagorg/.local/lib:$LIBRARY_PATH
+
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
