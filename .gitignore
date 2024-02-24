@@ -7,6 +7,7 @@
 !.gitconfig
 !.gitmodules
 !.vimrc
+!.vim/**/*
 !.zshenv
 !README.md
 !setup

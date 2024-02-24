@@ -1,3 +1,6 @@
+syntax on
+colorscheme onedark
+
 set nu
 set relativenumber
 set tabstop=4
