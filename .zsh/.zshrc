@@ -13,7 +13,7 @@ export PF_INFO="ascii title os shell editor pkgs uptime memory"
 /bin/clear
 echo ""
 echo -e -n "\x1b[\x35 q"
-echo "y" > ~/.zsh/.zsh_clear
+echo "y" > /home/tiagorg/.dotfiles/.zsh/.zsh_clear
 pfetch
 
 setopt autocd              # change directory just by typing its name
@@ -279,12 +279,12 @@ fi
 
 # Custom made alias
 
-alias zshrc='vim /home/tiagorg/.zsh/.zshrc && ref'
+alias zshrc='vim /home/tiagorg/.dotfiles/.zsh/.zshrc && ref'
 
 # improved system commands
 alias update='yay -Syu && flatpak update -y'
 alias autoremove='yay -Qqd | yay -Runs - && flatpak remove --delete-data --unused'
-alias clear='echo "y" > ~/.zsh/.zsh_clear && source ~/.zsh/.zshrc'
+alias clear='echo "y" > /home/tiagorg/.dotfiles/.zsh/.zsh_clear && source /home/tiagorg/.dotfiles/.zsh/.zshrc'
 alias c='clear'
 alias ref='echo -e -n "\x1b[\x35 q"'
 alias repos='cd /home/tiagorg/repos/'
@@ -305,23 +305,26 @@ alias pclean='ls | grep -P "^.+\.(o|elf|map|sym)$" | xargs -d"\n" rm'
 alias vpn='sudo snx -s go.ua.pt -u tiago.rgarcia@ua.pt'
 alias vpnd='sudo snx -d'
 
-source /home/tiagorg/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/tiagorg/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/tiagorg/.dotfiles/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/tiagorg/.dotfiles/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999999'
 
 
 if [ -d /opt/pic32mx/bin ] ; then
     export PATH=$PATH:/opt/pic32mx/bin
 fi
+if [ -d /opt/pic32mx/include ] ; then
+    export PATH=$PATH:/opt/pic32mx/include
+fi
 
 eval "$(zoxide init --cmd cd zsh)"
 
 # Set up path to check personal bin, include and lib directory
-export PATH=/home/tiagorg/.local/bin:$PATH
-export CPATH=/home/tiagorg/.local/include:/opt/pic32mx/include:$CPATH
+export PATH=/home/tiagorg/.dotfiles/.local/bin:$PATH
+export CPATH=/home/tiagorg/.dotfiles/.local/include:$CPATH
 # For C only: C_INCLUDE_PATH
 # For C++ only: CPLUS_INCLUDE_PATH
 # For Obj-C: OBJC_INCLUDE_PATH
-export LIBRARY_PATH=/home/tiagorg/.local/lib:$LIBRARY_PATH
+export LIBRARY_PATH=/home/tiagorg/.dotfiles/.local/lib:$LIBRARY_PATH
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
