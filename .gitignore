@@ -1,15 +1,3 @@
-*
-!.gitignore
-!.config/nvim/**/*
-!.local/bin/**/*
-!.zsh/**/*
-!.clang-format
-!.gitconfig
-!.gitmodules
-!.vimrc
-!.vim/**/*
-!.zshenv
-!README.md
-!setup
-
-.idea
+# Vim stuff
+.vim/.netrwhist
+.vim/undodir/
