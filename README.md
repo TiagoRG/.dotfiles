@@ -14,7 +14,7 @@ sudo pacman -S git stow vim neovim zsh clang
 
 ## Installation
 
-Clone the repo using one of the methods.
+### Clone the repo
 
 #### Using HTTPS
 
@@ -34,7 +34,7 @@ git clone git@github.com:TiagoRG/.dotfiles.git
 gh repo clone TiagoRG/.dotfiles
 ```
 
-Setup stow's symlinks.
+### Setup stow's symlinks
 
 ```sh
 cd .dotfiles
