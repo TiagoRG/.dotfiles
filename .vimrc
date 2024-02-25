@@ -1,7 +1,7 @@
 set nu
 set relativenumber
 set signcolumn=yes
-set colorcolumn=80
+set colorcolumn=0
 
 set smartindent
 set tabstop=4
