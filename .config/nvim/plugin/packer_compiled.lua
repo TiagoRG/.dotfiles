@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["AutoSave.nvim"] = {
+    loaded = true,
+    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/AutoSave.nvim",
+    url = "https://github.com/Pocco81/AutoSave.nvim"
+  },
   ["ChatGPT.nvim"] = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
@@ -310,14 +315,14 @@ time([[Config for nvim-surround]], false)
 time([[Config for tabset.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vtabset\frequire\0", "config", "tabset.nvim")
 time([[Config for tabset.nvim]], false)
--- Config for: monokai-pro.nvim
-time([[Config for monokai-pro.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16monokai-pro\frequire\0", "config", "monokai-pro.nvim")
-time([[Config for monokai-pro.nvim]], false)
 -- Config for: wrapping.nvim
 time([[Config for wrapping.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rwrapping\frequire\0", "config", "wrapping.nvim")
 time([[Config for wrapping.nvim]], false)
+-- Config for: monokai-pro.nvim
+time([[Config for monokai-pro.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16monokai-pro\frequire\0", "config", "monokai-pro.nvim")
+time([[Config for monokai-pro.nvim]], false)
 -- Config for: aerial.nvim
 time([[Config for aerial.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vaerial\frequire\0", "config", "aerial.nvim")

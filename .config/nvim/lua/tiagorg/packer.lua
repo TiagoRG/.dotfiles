@@ -80,12 +80,7 @@ return require('packer').startup(function(use)
         end
     }
     use('nvim-tree/nvim-web-devicons')
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional
-        },
-    }
+    use 'nvim-tree/nvim-tree.lua'
     use 'lewis6991/gitsigns.nvim'
     use 'romgrk/barbar.nvim'
     use { "akinsho/toggleterm.nvim", tag = '*' }
@@ -122,6 +117,7 @@ return require('packer').startup(function(use)
             "nvim-telescope/telescope.nvim"
         }
     }
+    use "Pocco81/AutoSave.nvim"
 
     use 'TiagoRG/liveshare.nvim'
 end)

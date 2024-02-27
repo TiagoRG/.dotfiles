@@ -314,7 +314,7 @@ if [ -d /opt/pic32mx/bin ] ; then
     export PATH=$PATH:/opt/pic32mx/bin
 fi
 if [ -d /opt/pic32mx/include ] ; then
-    export PATH=$PATH:/opt/pic32mx/include
+    export CPATH=$CPATH:/opt/pic32mx/include
 fi
 
 eval "$(zoxide init --cmd cd zsh)"
