@@ -259,6 +259,11 @@ _G.packer_plugins = {
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/tabset.nvim",
     url = "https://github.com/FotiadisM/tabset.nvim"
   },
+  ["telescope-helpgrep.nvim"] = {
+    loaded = true,
+    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/telescope-helpgrep.nvim",
+    url = "https://github.com/catgoose/telescope-helpgrep.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/telescope.nvim",
