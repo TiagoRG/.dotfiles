@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["AutoSave.nvim"] = {
-    loaded = true,
-    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/AutoSave.nvim",
-    url = "https://github.com/Pocco81/AutoSave.nvim"
-  },
   ["ChatGPT.nvim"] = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
@@ -138,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
+  },
+  ["dracula.nvim"] = {
+    loaded = true,
+    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/dracula.nvim",
+    url = "https://github.com/Mofiqul/dracula.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
