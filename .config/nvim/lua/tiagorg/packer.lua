@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
     }
     use 'olimorris/onedarkpro.nvim'
     use 'Mofiqul/vscode.nvim'
+    use 'Mofiqul/dracula.nvim'
 
     -- Essentials
     use {
@@ -66,7 +67,6 @@ return require('packer').startup(function(use)
     use('wakatime/vim-wakatime')
     use('andweeb/presence.nvim')
 
-
     -- Little friend
     use("github/copilot.vim")
 
@@ -80,7 +80,6 @@ return require('packer').startup(function(use)
             "nvim-telescope/telescope.nvim"
         }
     }
-    use "Pocco81/AutoSave.nvim"
 
     use 'TiagoRG/liveshare.nvim'
 end)

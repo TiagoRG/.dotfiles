@@ -1,5 +1,8 @@
 local lsp = require("lsp-zero")
 
+vim.opt.pumheight = 10
+vim.opt.pumwidth = 30
+
 lsp.preset("recommended")
 
 -- Fix Undefined global 'vim'

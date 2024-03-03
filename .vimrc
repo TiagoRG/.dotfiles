@@ -1,17 +1,20 @@
-set nu
+set number
 set relativenumber
-set signcolumn=yes
+set signcolumn=auto
 set colorcolumn=0
+set cursorline
 
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set ls=2
 
-set hls
-set is
-set ic
+set hlsearch
+set incsearch
+set ignorecase
 set scrolloff=10
+
+set wildmenu
 
 let g:mapleader=" "
 
@@ -20,6 +23,13 @@ colorscheme onedark
 
 nnoremap <leader>w :w<CR>
 nnoremap <leader>e :E<CR>
+nnoremap <leader>o o<Esc>
+nnoremap <leader>O O<Esc>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 xnoremap J :move '>+1<CR>gv=gv
 xnoremap K :move '<-2<CR>gv=gv
