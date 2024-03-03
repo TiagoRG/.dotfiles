@@ -19,7 +19,10 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.1',
-        requires = { 'nvim-lua/plenary.nvim' }
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'catgoose/telescope-helpgrep.nvim'
+        }
     }
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use("nvim-treesitter/nvim-treesitter-context")
@@ -41,7 +44,9 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
+    use "folke/trouble.nvim"
     use "stevearc/aerial.nvim"
+    use 'numToStr/Comment.nvim'
     use 'm4xshen/autoclose.nvim'
 
     -- Extras
@@ -49,14 +54,12 @@ return require('packer').startup(function(use)
     use "andrewferrier/wrapping.nvim"
     use "lukas-reineke/indent-blankline.nvim"
     use "HiPhish/nvim-ts-rainbow2"
-    use "folke/trouble.nvim"
     use "FotiadisM/tabset.nvim"
     use 'nvim-tree/nvim-web-devicons'
     use 'nvim-tree/nvim-tree.lua'
     use 'lewis6991/gitsigns.nvim'
     use 'romgrk/barbar.nvim'
     use { "akinsho/toggleterm.nvim", tag = '*' }
-    use 'numToStr/Comment.nvim'
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -80,6 +83,4 @@ return require('packer').startup(function(use)
             "nvim-telescope/telescope.nvim"
         }
     }
-
-    use 'TiagoRG/liveshare.nvim'
 end)

@@ -57,7 +57,7 @@ nnoremap <leader>m :!make<CR>
 
 augroup SearchHighlight
 	autocmd!
-	autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :nohls<CR>
-	autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :nohls<CR>
+	autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :noh<CR>
+	autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :noh<CR>
 augroup END
 

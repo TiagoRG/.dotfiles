@@ -36,11 +36,6 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>af", "ggVG")
 vim.keymap.set("n", "<leader>ab", "GVgg")
 
--- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
--- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
--- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
--- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
 vim.keymap.set("v", "<leader>rs", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>ra", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>rc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>]])
@@ -56,7 +51,7 @@ vim.keymap.set("n", "<S-Tab>", "<C-w>w")
 vim.api.nvim_exec([[
     augroup SearchHighlight
         autocmd!
-        autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :nohls<CR>
-        autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :nohls<CR>
+        autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :noh<CR>
+        autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :noh<CR>
     augroup END
 ]], false)

@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.mouse = "a"
 
 vim.opt.updatetime = 50
-vim.opt.wrap = false
+vim.opt.compatible = false
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -18,6 +18,7 @@ vim.opt.scs = true
 
 vim.opt.smartindent = true
 vim.opt.autoindent = true
+vim.opt.wrap = false
 
 vim.opt.showmode = false
 vim.opt.wildmenu = true

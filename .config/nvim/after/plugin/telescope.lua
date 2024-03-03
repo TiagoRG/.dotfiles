@@ -14,3 +14,9 @@ vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
 
 -- LSP pickers
 vim.keymap.set('n', '<leader>pe', trouble.open_with_trouble, {})
+
+-- Help pickers
+vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
+vim.api.nvim_create_user_command('Help',function()
+    builtin.help_tags()
+end,{})
