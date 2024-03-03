@@ -18,7 +18,8 @@ require('lualine').setup {
         }
     },
     sections = {
-        lualine_a = { 'fileformat', 'mode' },
+        -- lualine_a = { 'fileformat', 'mode' },
+        lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename', 'aerial' },
         lualine_x = { 'filesize', 'filetype' },

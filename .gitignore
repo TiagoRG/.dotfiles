@@ -1,3 +1,4 @@
 # Vim stuff
 .vim/.netrwhist
 .vim/undodir/
+.vim/pack/
