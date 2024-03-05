@@ -1,9 +1,9 @@
 require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    -- ensure_installed = { "bash", "lua", "vim", "vimdoc", "query", "regex",
-    --	"c", "cpp", "c_sharp", "rust", "python",
-    --	"html", "css", "php", "javascript", "typescript", "sql"
-    --  },
+    ensure_installed = { "bash", "lua", "vim", "vimdoc", "query", "regex",
+    "c", "cpp", "c_sharp", "rust", "python",
+    "html", "css", "php", "javascript", "typescript", "sql"
+     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -25,7 +25,7 @@ require 'nvim-treesitter.configs'.setup {
     rainbow = {
         enable = true,
         -- list of languages you want to disable the plugin for
-        disable = { 'jsx' },
+        disable = { 'jsx', 'cpp' },
         -- Which query to use for finding delimiters
         query = 'rainbow-parens',
         -- Highlight the entire buffer all at once

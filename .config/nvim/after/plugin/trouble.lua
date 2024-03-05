@@ -1,7 +1,7 @@
 require("trouble").setup {
     position = "bottom",
     auto_open = true,
-    auto_close = false,
+    auto_close = true,
     auto_preview = false,
     icons = true,
 }

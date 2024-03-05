@@ -2,7 +2,7 @@ local function trim(str)
     return str:gsub("^%s*(.-)%s*$", "%1")
 end
 
-function ColorMyPencils()
+function LoadColors()
     local color = nil
     local file = io.open("/home/tiagorg/.config/nvim/data/colorscheme.txt", "r")
 
@@ -24,10 +24,6 @@ function ColorMyPencils()
     end
 
     vim.cmd.colorscheme(color)
-
-    --vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-
-    --vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 -- Define a function to be called when the colorscheme changes
@@ -41,7 +37,12 @@ function OnColorschemeChanged()
     file:write(newColorscheme)
 end
 
-ColorMyPencils()
+LoadColors()
 -- Set up an autocmd to trigger the function when the colorscheme changes
 vim.cmd([[autocmd ColorScheme * lua OnColorschemeChanged()]])
+
+vim.api.nvim_create_user_command("TransparentBackground", function(opts)
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end, {})
 
