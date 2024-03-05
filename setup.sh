@@ -4,6 +4,9 @@
 ORIGIN_DIR=$(pwd)
 cd "$HOME" || exit
 
+# Install git
+sudo pacman -S git --noconfirm
+
 # Install yay
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay || exit
@@ -12,9 +15,8 @@ sudo pacman -U yay-*.pkg.tar.zst --noconfirm
 cd "$OLDPWD" || exit
 
 # Install the required packages
-# print in green
 echo -e "\e[32m$1\e[0mInstalling the required packages"
-sudo yay -S stow vim neovim zsh git clang nodejs npm zoxide pfetch --noconfirm
+yay -S stow vim neovim zsh clang nodejs npm zoxide pfetch --noconfirm
 
 # Clone the dotfiles if it's not the current directory
 if [ "$(pwd)" != "$HOME/.dotfiles" ]; then

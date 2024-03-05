@@ -23,3 +23,7 @@ _darcs
 # -------------------------
 
 setup.sh
+.config/*
+!.config/nvim
+.local/*
+!.local/bin
