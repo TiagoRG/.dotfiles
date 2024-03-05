@@ -2,3 +2,5 @@
 .vim/.netrwhist
 .vim/undodir/
 .vim/pack/
+.zsh/zsh-autosuggestions
+.zsh/zsh-syntax-highlighting

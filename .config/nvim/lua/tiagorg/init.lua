@@ -1,6 +1,6 @@
 require("tiagorg.set")
 require("tiagorg.remap")
+require('tiagorg.colors')
 
 require('Comment').setup()
-require("liveshare").setup()
 require("nvim-surround").setup()
