@@ -293,6 +293,7 @@ alias s='sudo'
 alias grepf='grep -sirnIE'
 alias tl='telnet localhost'
 alias py='python'
+alias mkjava='javac -d bin/ src/**/*.java'
 alias core='echo "core.%e.%p" | sudo tee /proc/sys/kernel/core_pattern'
 
 # uaveiro-leci repository
