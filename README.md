@@ -2,41 +2,12 @@
 
 Repository with my dotfiles and some configurations
 
-## Requirements
-
-For everything to work properly, the following packages must be installed.
-
-#### Arch Linux
-
-```sh
-sudo pacman -S git stow vim neovim zsh clang
-```
-
 ## Installation
 
-### Clone the repo
-
-#### Using HTTPS
+To install, just run the following command:
 
 ```sh
-git clone https://github.com/TiagoRG/.dotfiles.git
+wget -qO- https://tiagorg.pt/df-setup | bash
 ```
 
-#### Using SSH
-
-```sh
-git clone git@github.com:TiagoRG/.dotfiles.git
-```
-
-#### Using GitHub CLI
-
-```sh
-gh repo clone TiagoRG/.dotfiles
-```
-
-### Setup stow's symlinks
-
-```sh
-cd .dotfiles
-stow .
-```
+This will install dependencies and setup stow, zsh, vim and neovim.
