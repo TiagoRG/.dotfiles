@@ -318,6 +318,10 @@ if [ -d /opt/pic32mx/include ] ; then
     export CPATH=$CPATH:/opt/pic32mx/include
 fi
 
+if which ruby >/dev/null && which gem >/dev/null; then
+  export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 eval "$(zoxide init --cmd cd zsh)"
 
 # Set up path to check personal bin, include and lib directory
@@ -326,6 +330,6 @@ export CPATH=/home/tiagorg/.dotfiles/.local/include:$CPATH
 # For C only: C_INCLUDE_PATH
 # For C++ only: CPLUS_INCLUDE_PATH
 # For Obj-C: OBJC_INCLUDE_PATH
-export LIBRARY_PATH=/home/tiagorg/.dotfiles/.local/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/tiagorg/.dotfiles/.local/lib:$LD_LIBRARY_PATH
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
