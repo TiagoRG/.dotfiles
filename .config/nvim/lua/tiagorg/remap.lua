@@ -1,8 +1,6 @@
 --vim.keymap.set("n", "<leader>e", vim.cmd.E)
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set({ "n", "i" }, "<C-S>", vim.cmd.w)
-vim.keymap.set("n", "<leader>o", "o<Esc>")
-vim.keymap.set("n", "<leader>O", "O<Esc>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
