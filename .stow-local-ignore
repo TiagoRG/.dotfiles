@@ -27,3 +27,5 @@ setup.sh
 !.config/nvim
 .local/*
 !.local/bin
+!.local/include
+!.local/lib

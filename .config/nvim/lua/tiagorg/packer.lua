@@ -48,6 +48,10 @@ return require('packer').startup(function(use)
     use "stevearc/aerial.nvim"
     use 'numToStr/Comment.nvim'
     use 'm4xshen/autoclose.nvim'
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    })
 
     -- Extras
     use 'mbbill/undotree'
@@ -60,10 +64,6 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'romgrk/barbar.nvim'
     use { "akinsho/toggleterm.nvim", tag = '*' }
-    use({
-        "kylechui/nvim-surround",
-        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    })
     use 'nvim-lualine/lualine.nvim'
 
     -- Misc
@@ -83,5 +83,4 @@ return require('packer').startup(function(use)
             "nvim-telescope/telescope.nvim"
         }
     }
-    use 'mfussenegger/nvim-jdtls'
 end)
