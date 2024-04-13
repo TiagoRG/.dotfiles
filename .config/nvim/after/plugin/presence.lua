@@ -15,9 +15,13 @@ require("presence").setup({
         "toggleterm",
         "curriculum-vitae",
         "Nextcloud",
+        "NvimTree",
     },
     buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
     file_assets         = {                           -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+        adoc = { "AsciiDoc", "https://www.tiagorg.pt/assets/logos/adoc.png" },
+        asm = { "Assembly", "https://www.tiagorg.pt/assets/logos/asm.png" },
+        s = { "Assembly", "https://www.tiagorg.pt/assets/logos/asm.png" },
     },
     show_time           = true,                       -- Show the timer
 
