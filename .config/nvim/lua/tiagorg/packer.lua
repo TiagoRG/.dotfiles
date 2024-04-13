@@ -7,13 +7,8 @@ return require('packer').startup(function(use)
 
     -- Themes
     use "loctvl842/monokai-pro.nvim"
-    use {
-        'rose-pine/neovim',
-        as = 'rose-pine',
-    }
     use 'olimorris/onedarkpro.nvim'
     use 'Mofiqul/vscode.nvim'
-    use 'Mofiqul/dracula.nvim'
 
     -- Essentials
     use {
@@ -65,6 +60,7 @@ return require('packer').startup(function(use)
     use 'romgrk/barbar.nvim'
     use { "akinsho/toggleterm.nvim", tag = '*' }
     use 'nvim-lualine/lualine.nvim'
+    use 'lervag/vimtex'
 
     -- Misc
     use('wakatime/vim-wakatime')
@@ -74,13 +70,19 @@ return require('packer').startup(function(use)
     use("github/copilot.vim")
 
     -- trying out
-    use 'lervag/vimtex'
     use {
-        'jackMort/ChatGPT.nvim',
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
+        'windwp/nvim-ts-autotag',
+        config = function()
+            require('nvim-ts-autotag').setup()
+			require 'nvim-treesitter.configs'.setup {
+				autotag = {
+					enable = true,
+					enable_rename = true,
+					enable_close = true,
+					enable_close_on_slash = true,
+					filetypes = { "html", "xml", "javascript", "typescript", "svelte", "vue", "javascriptreact", "typescriptreact"},
+				}
+			}
+        end
     }
 end)
