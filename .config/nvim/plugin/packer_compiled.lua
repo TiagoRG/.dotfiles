@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["ChatGPT.nvim"] = {
-    loaded = true,
-    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
-    url = "https://github.com/jackMort/ChatGPT.nvim"
-  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -134,11 +129,6 @@ _G.packer_plugins = {
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
-  ["dracula.nvim"] = {
-    loaded = true,
-    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/dracula.nvim",
-    url = "https://github.com/Mofiqul/dracula.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -179,11 +169,6 @@ _G.packer_plugins = {
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/monokai-pro.nvim",
     url = "https://github.com/loctvl842/monokai-pro.nvim"
   },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -214,6 +199,12 @@ _G.packer_plugins = {
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
+  ["nvim-ts-autotag"] = {
+    config = { "\27LJ\2\nü\2\0\0\5\0\t\0\0166\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\2\0005\2\a\0005\3\4\0005\4\5\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\fautotag\1\0\0\14filetypes\1\t\0\0\thtml\bxml\15javascript\15typescript\vsvelte\bvue\20javascriptreact\20typescriptreact\1\0\4\18enable_rename\2\17enable_close\2\26enable_close_on_slash\2\venable\2\28nvim-treesitter.configs\nsetup\20nvim-ts-autotag\frequire\0" },
+    loaded = true,
+    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
+  },
   ["nvim-ts-rainbow2"] = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow2",
@@ -243,11 +234,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/presence.nvim",
     url = "https://github.com/andweeb/presence.nvim"
-  },
-  ["rose-pine"] = {
-    loaded = true,
-    path = "/home/tiagorg/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
   },
   ["tabset.nvim"] = {
     loaded = true,
@@ -302,6 +288,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\nü\2\0\0\5\0\t\0\0166\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\2\0005\2\a\0005\3\4\0005\4\5\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\fautotag\1\0\0\14filetypes\1\t\0\0\thtml\bxml\15javascript\15typescript\vsvelte\bvue\20javascriptreact\20typescriptreact\1\0\4\18enable_rename\2\17enable_close\2\26enable_close_on_slash\2\venable\2\28nvim-treesitter.configs\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
