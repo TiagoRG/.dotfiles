@@ -1,6 +1,6 @@
---vim.keymap.set("n", "<leader>e", vim.cmd.E)
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set({ "n", "i" }, "<C-S>", vim.cmd.w)
+--vim.keymap.set("n", "<leader>e", vim.cmd.E)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -45,11 +45,3 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>so ~/.config/nvim/lua/tiagorg/packer.lu
 vim.keymap.set("n", "<C-q>", "<cmd>qa<CR>")
 vim.keymap.set("n", "<A-t>", "<cmd>tabnew<CR><cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<S-Tab>", "<C-w>w")
-
-vim.api.nvim_exec([[
-    augroup SearchHighlight
-        autocmd!
-        autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :noh<CR>
-        autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :noh<CR>
-    augroup END
-]], false)

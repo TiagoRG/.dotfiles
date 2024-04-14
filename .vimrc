@@ -23,6 +23,8 @@ let g:mapleader=" "
 syntax on
 colorscheme onedark
 
+nnoremap <C-q> :qa<CR>
+nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>e :E<CR>
 nnoremap <leader>o o<Esc>
@@ -61,5 +63,13 @@ augroup SearchHighlight
 	autocmd!
 	autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :noh<CR>
 	autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :noh<CR>
+augroup END
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+augroup myCmds
+	au!
+	autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
