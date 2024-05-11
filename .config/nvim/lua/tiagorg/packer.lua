@@ -13,7 +13,6 @@ return require('packer').startup(function(use)
     -- Essentials
     use {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
         requires = {
             'nvim-lua/plenary.nvim',
             'catgoose/telescope-helpgrep.nvim'
@@ -23,6 +22,7 @@ return require('packer').startup(function(use)
     use("nvim-treesitter/nvim-treesitter-context")
     use {
         'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
         requires = {
             { 'neovim/nvim-lspconfig' },
             { 'williamboman/mason.nvim' },
@@ -85,4 +85,5 @@ return require('packer').startup(function(use)
 			}
         end
     }
+    use 'mg979/vim-visual-multi'
 end)
