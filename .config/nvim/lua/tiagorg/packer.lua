@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
 
     -- Themes
     use "loctvl842/monokai-pro.nvim"
-    use 'olimorris/onedarkpro.nvim'
+    use "TiagoRG/onedarkpro.nvim"
     use 'Mofiqul/vscode.nvim'
 
     -- Essentials
@@ -61,6 +61,7 @@ return require('packer').startup(function(use)
     use { "akinsho/toggleterm.nvim", tag = '*' }
     use 'nvim-lualine/lualine.nvim'
     use 'lervag/vimtex'
+    use 'laytan/cloak.nvim'
 
     -- Misc
     use('wakatime/vim-wakatime')
@@ -74,15 +75,15 @@ return require('packer').startup(function(use)
         'windwp/nvim-ts-autotag',
         config = function()
             require('nvim-ts-autotag').setup()
-			require 'nvim-treesitter.configs'.setup {
-				autotag = {
-					enable = true,
-					enable_rename = true,
-					enable_close = true,
-					enable_close_on_slash = true,
-					filetypes = { "html", "xml", "javascript", "typescript", "svelte", "vue", "javascriptreact", "typescriptreact"},
-				}
-			}
+            -- require 'nvim-treesitter.configs'.setup {
+            -- 	autotag = {
+            -- 		enable = true,
+            -- 		enable_rename = true,
+            -- 		enable_close = true,
+            -- 		enable_close_on_slash = true,
+            -- 		filetypes = { "html", "xml", "javascript", "typescript", "svelte", "vue", "javascriptreact", "typescriptreact"},
+            -- 	}
+            -- }
         end
     }
     use 'mg979/vim-visual-multi'
