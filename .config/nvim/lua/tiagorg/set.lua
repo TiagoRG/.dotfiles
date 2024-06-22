@@ -30,7 +30,6 @@ vim.opt.undofile = true
 
 vim.opt.termguicolors = true
 vim.opt.isfname:append("@-@")
-vim.opt.guitablabel = "\\[%N\\]\\ %t\\ %M"
 
-vim.g.copilot_node_command = "/usr/bin/nodenv"
+vim.g.copilot_node_command = "node"
 vim.g.copilot_assume_mapped = true
