@@ -7,13 +7,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end,
 })
 
-vim.api.nvim_exec([[
-    augroup SearchHighlight
-        autocmd!
-        autocmd CmdlineLeave /,\? :nnoremap <buffer> <Esc> :noh<CR>
-        autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :noh<CR>
-    augroup END
-]], false)
+vim.api.nvim_create_autocmd({"CmdlineLeave", "CmdlineChanged"}, {
+    group = vim.api.nvim_create_augroup("SearchHighlight", { clear = true }),
+    pattern = { "/", "\\?" },
+    callback = function()
+        vim.cmd([[nnoremap <buffer> <Esc> :noh<CR>]])
+    end
+})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight yanked text",

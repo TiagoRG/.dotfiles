@@ -1,6 +1,4 @@
-require("wrapping").setup()
-
-opts = {
+local opts = {
     auto_set_mode_filetype_allowlist = {
         "asciidoc",
         "gitcommit",
@@ -14,3 +12,5 @@ opts = {
     },
     soft_wrap = true,
 }
+
+require("wrapping").setup(opts)
