@@ -5,3 +5,4 @@
 .vim/autoload/plug.vim
 .zsh/zsh-autosuggestions
 .zsh/zsh-syntax-highlighting
+.zsh/.zcompcache
