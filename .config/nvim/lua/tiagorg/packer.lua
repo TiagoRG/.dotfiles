@@ -69,22 +69,4 @@ return require('packer').startup(function(use)
 
     -- Little friend
     use("github/copilot.vim")
-
-    -- trying out
-    use {
-        'windwp/nvim-ts-autotag',
-        config = function()
-            require('nvim-ts-autotag').setup()
-            -- require 'nvim-treesitter.configs'.setup {
-            -- 	autotag = {
-            -- 		enable = true,
-            -- 		enable_rename = true,
-            -- 		enable_close = true,
-            -- 		enable_close_on_slash = true,
-            -- 		filetypes = { "html", "xml", "javascript", "typescript", "svelte", "vue", "javascriptreact", "typescriptreact"},
-            -- 	}
-            -- }
-        end
-    }
-    use 'mg979/vim-visual-multi'
 end)
