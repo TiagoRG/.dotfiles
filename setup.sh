@@ -16,7 +16,7 @@ cd "$OLDPWD" || exit
 
 # Install the required packages
 echo -e "\e[32m$1\e[0mInstalling the required packages"
-yay -S stow vim neovim zsh clang nodejs npm zoxide pfetch --noconfirm
+yay -S stow gvim neovim zsh fzf bat clang nodejs npm zoxide pfetch ripgrep tree --noconfirm
 
 # Clone the dotfiles if it's not the current directory
 if [ "$(pwd)" != "$HOME/.dotfiles" ]; then
@@ -39,9 +39,6 @@ stow -d .dotfiles .
 echo -e "\e[32m$1\e[0mSetting up Neovim"
 echo -e "\e[32m$1\e[0mInstalling Packer"
 git clone --depth 1 "https://github.com/wbthomason/packer.nvim" "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-stow -d .dotfiles .
-echo -e "\e[32m$1\e[0mInstalling Plugins"
-/bin/nvim --headless -c 'source /home/tiagorg/.dotfiles/.config/nvim/lua/tiagorg/packer.lua' -c 'PackerSync' -c 'qa!'
 
 # Setup zsh
 echo -e "\e[32m$1\e[0mSetting up zsh"
