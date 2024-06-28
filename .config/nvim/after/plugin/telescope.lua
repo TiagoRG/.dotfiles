@@ -1,5 +1,5 @@
 local builtin = require('telescope.builtin')
-local trouble = require('trouble.providers.telescope')
+local trouble = require("trouble.sources.telescope")
 
 -- File pickers
 vim.keymap.set('n', '<leader>pf', "<cmd>Telescope find_files hidden=true<CR>", {})
@@ -13,7 +13,7 @@ vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
 
 -- LSP pickers
-vim.keymap.set('n', '<leader>pe', trouble.open_with_trouble, {})
+vim.keymap.set('n', '<leader>pe', trouble.open, {})
 
 -- Help pickers
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
