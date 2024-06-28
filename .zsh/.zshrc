@@ -287,40 +287,13 @@ alias autoremove='yay -Qqd | yay -Runs - && flatpak remove --delete-data --unuse
 alias clear='echo "y" > /home/tiagorg/.dotfiles/.zsh/.zsh_clear && source /home/tiagorg/.dotfiles/.zsh/.zshrc'
 alias c='clear'
 alias ref='echo -e -n "\x1b[\x35 q"'
-alias repos='cd /home/tiagorg/repos/'
-alias sus='su'
-alias s='sudo'
 alias grepf='grep -sirnIE'
-alias tl='telnet localhost'
-alias py='python'
 alias mkjava='javac -d bin/ src/**/*.java'
 alias core='echo "core.%e.%p" | sudo tee /proc/sys/kernel/core_pattern'
-
-# uaveiro-leci repository
-alias ua='cd /home/tiagorg/repos/uaveiro-leci'
-alias ua-gi='nvim /home/tiagorg/repos/uaveiro-leci/.git/info/exclude'
-alias aed='/home/tiagorg/repos/uaveiro-leci/2ano/1semestre/aed/setup.sh'
-alias pclean='ls | grep -P "^.+\.(o|elf|map|sym)$" | xargs -d"\n" rm'
-
-# ua vpn/ssh server
-alias vpn='sudo snx -s go.ua.pt -u tiago.rgarcia@ua.pt'
-alias vpnd='sudo snx -d'
 
 source /home/tiagorg/.dotfiles/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/tiagorg/.dotfiles/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999999'
-
-
-if [ -d /opt/pic32mx/bin ] ; then
-    export PATH=$PATH:/opt/pic32mx/bin
-fi
-if [ -d /opt/pic32mx/include ] ; then
-    export CPATH=$CPATH:/opt/pic32mx/include
-fi
-
-if which ruby >/dev/null && which gem >/dev/null; then
-  export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
 
 eval "$(zoxide init --cmd cd zsh)"
 

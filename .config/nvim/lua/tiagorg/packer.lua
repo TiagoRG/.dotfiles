@@ -9,6 +9,10 @@ return require('packer').startup(function(use)
     use "loctvl842/monokai-pro.nvim"
     use "TiagoRG/onedarkpro.nvim"
     use 'Mofiqul/vscode.nvim'
+    use {
+        'rose-pine/neovim',
+        as = 'rose-pine'
+    }
 
     -- Essentials
     use {
