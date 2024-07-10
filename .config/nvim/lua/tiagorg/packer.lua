@@ -56,7 +56,8 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
     use "andrewferrier/wrapping.nvim"
     use "lukas-reineke/indent-blankline.nvim"
-    use "HiPhish/nvim-ts-rainbow2"
+    -- use "HiPhish/nvim-ts-rainbow2"
+    use "HiPhish/rainbow-delimiters.nvim"
     use "FotiadisM/tabset.nvim"
     use 'nvim-tree/nvim-web-devicons'
     use 'nvim-tree/nvim-tree.lua'

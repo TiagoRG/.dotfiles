@@ -6,10 +6,10 @@
 	helper = !/usr/bin/gh auth git-credential
 [user]
 	email = tiago.rgarcia@ua.pt
-	name = TiagoRG
-	signingkey = DFCD48E3F420DB42!
+	name = Tiago Garcia
+	signingkey = 545513959AF6B11BBAD0EF3FFF0A53A30B1ADF82
 [core]
-    editor = nvim
+	editor = nvim
 	excludesfile = /home/tiagorg/.gitignore
 [alias]
     commit = commit -S

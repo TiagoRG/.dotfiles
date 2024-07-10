@@ -4,7 +4,7 @@ end
 
 function LoadColors()
     local color = nil
-    local file = io.open("/home/tiagorg/.config/nvim/data/colorscheme.txt", "r")
+    local file = io.open("/home/tiagorg/.dotfiles/.config/nvim/data/colorscheme.txt", "r")
 
     -- check if file exists
     if file == nil then
@@ -30,7 +30,7 @@ end
 function OnColorschemeChanged()
     local newColorscheme = vim.g.colors_name
 
-    local file = io.open("/home/tiagorg/.config/nvim/data/colorscheme.txt", "w")
+    local file = io.open("/home/tiagorg/.dotfiles/.config/nvim/data/colorscheme.txt", "w")
     if file == nil then
         return
     end
