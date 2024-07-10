@@ -6,3 +6,4 @@
 .zsh/zsh-autosuggestions
 .zsh/zsh-syntax-highlighting
 .zsh/.zcompcache
+.zsh/.zsh_history

@@ -307,7 +307,4 @@ export LD_LIBRARY_PATH=/home/tiagorg/.dotfiles/.local/lib:$LD_LIBRARY_PATH
 
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
 eval "$(fzf --zsh)"
