@@ -1,10 +1,14 @@
+local path = vim.fn.stdpath('config')
+local absolute_path = vim.loop.fs_realpath(path) or path
+local colorscheme_file = absolute_path .. "/data/colorscheme.txt"
+
 local function trim(str)
     return str:gsub("^%s*(.-)%s*$", "%1")
 end
 
 function LoadColors()
     local color = nil
-    local file = io.open("/home/tiagorg/.dotfiles/.config/nvim/data/colorscheme.txt", "r")
+    local file = io.open(colorscheme_file, "r")
 
     -- check if file exists
     if file == nil then
@@ -30,8 +34,9 @@ end
 function OnColorschemeChanged()
     local newColorscheme = vim.g.colors_name
 
-    local file = io.open("/home/tiagorg/.dotfiles/.config/nvim/data/colorscheme.txt", "w")
+    local file = io.open(colorscheme_file, "w+")
     if file == nil then
+        vim.loop.fs_mkdir(absolute_path .. "/data", 511, OnColorschemeChanged)
         return
     end
     file:write(newColorscheme)
