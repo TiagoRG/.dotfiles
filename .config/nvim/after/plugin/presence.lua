@@ -15,13 +15,18 @@ require("presence").setup({
         "toggleterm",
         "curriculum-vitae",
         "Nextcloud",
-        "NvimTree",
+        "NvimTree_1",
     },
     buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
     file_assets         = {                           -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
-        adoc = { "AsciiDoc", "https://www.tiagorg.pt/assets/logos/adoc.png" },
-        asm = { "Assembly", "https://www.tiagorg.pt/assets/logos/asm.png" },
-        s = { "Assembly", "https://www.tiagorg.pt/assets/logos/asm.png" },
+        ["CMakeLists.txt"] = { "CMake", "https://www.tiagorg.pt/assets/icons/png/cmake.png" },
+        [".env"] = { ".env", "https://www.tiagorg.pt/assets/icons/png/env.png" },
+        ["zsh;#toggleterm#1"] = { "Terminal", "https://www.tiagorg.pt/assets/icons/png/terminal.png" },
+        adoc = { "AsciiDoc", "https://www.tiagorg.pt/assets/icons/png/adoc.png" },
+        asm = { "Assembly", "https://www.tiagorg.pt/assets/icons/png/asm.png" },
+        cmake = { "CMake", "https://www.tiagorg.pt/assets/icons/png/cmake.png" },
+        env = { ".env", "https://www.tiagorg.pt/assets/icons/png/env.png" },
+        s = { "Assembly", "https://www.tiagorg.pt/assets/icons/png/asm.png" },
     },
     show_time           = true,                       -- Show the timer
 
