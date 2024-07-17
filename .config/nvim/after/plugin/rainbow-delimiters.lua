@@ -8,6 +8,7 @@ require('rainbow-delimiters.setup').setup {
     query = {
         [''] = 'rainbow-delimiters',
         lua = 'rainbow-blocks',
+        bash = 'rainbow-blocks',
     },
     priority = {
         [''] = 110,

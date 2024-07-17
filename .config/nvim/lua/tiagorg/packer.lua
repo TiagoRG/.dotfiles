@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
     }
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use("nvim-treesitter/nvim-treesitter-context")
+    use "HiPhish/rainbow-delimiters.nvim"
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -56,8 +57,6 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
     use "andrewferrier/wrapping.nvim"
     use "lukas-reineke/indent-blankline.nvim"
-    -- use "HiPhish/nvim-ts-rainbow2"
-    use "HiPhish/rainbow-delimiters.nvim"
     use "FotiadisM/tabset.nvim"
     use 'nvim-tree/nvim-web-devicons'
     use 'nvim-tree/nvim-tree.lua'
