@@ -7,7 +7,7 @@
 [user]
 	email = tiago.rgarcia@ua.pt
 	name = Tiago Garcia
-	signingkey = 545513959AF6B11BBAD0EF3FFF0A53A30B1ADF82
+	signingkey = 163D23CB1BD2F4FECA6D3695DFCD48E3F420DB42
 [core]
 	editor = nvim
 	excludesfile = /home/tiagorg/.gitignore

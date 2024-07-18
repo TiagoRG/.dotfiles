@@ -7,6 +7,7 @@ export EDITOR=nvim
 alias vim='nvim'
 alias v='vim . && ref'
 alias vi='/usr/bin/vim'
+alias iv='export CPATH=$(pwd)/include:$CPATH && nvim . && ref'
 
 export PF_INFO="ascii title os shell editor pkgs uptime memory"
 
@@ -297,9 +298,16 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999999'
 
 eval "$(zoxide init --cmd cd zsh)"
 
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # Set up path to check personal bin, include and lib directory
 export PATH=/home/tiagorg/.dotfiles/.local/bin:$PATH
-export CPATH=/home/tiagorg/.dotfiles/.local/include:$CPATH
+export CPATH=/home/tiagorg/.dotfiles/.local/include:/home/tiagorg/repos/gh-wh-handler/include:$CPATH
 # For C only: C_INCLUDE_PATH
 # For C++ only: CPLUS_INCLUDE_PATH
 # For Obj-C: OBJC_INCLUDE_PATH
