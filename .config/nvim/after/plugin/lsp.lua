@@ -1,7 +1,7 @@
 local lsp = require("lsp-zero")
 
-vim.opt.pumheight = 10
-vim.opt.pumwidth = 30
+vim.opt.pumheight = 15
+vim.opt.pumwidth = 60
 
 lsp.preset("recommended")
 
