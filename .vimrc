@@ -20,9 +20,6 @@ set wildmenu
 
 let g:mapleader=" "
 
-syntax on
-colorscheme onedark
-
 nnoremap <C-q> :qa<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
@@ -65,11 +62,27 @@ augroup SearchHighlight
 	autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :noh<CR>
 augroup END
 
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+" let &t_SI = "\e[6 q"
+" let &t_EI = "\e[2 q"
 
-augroup myCmds
-	au!
-	autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
+" augroup myCmds
+" 	au!
+" 	autocmd VimEnter * silent !echo -ne "\e[2 q"
+" augroup END
 
+call plug#begin()
+
+Plug 'joshdick/onedark.vim'
+
+Plug 'rose-pine/vim', { 'as': 'rose-pine' }
+
+Plug 'github/copilot.vim'
+
+Plug 'tpope/vim-commentary'
+
+Plug 'tpope/vim-surround'
+
+call plug#end()
+
+syntax on
+colorscheme rosepine

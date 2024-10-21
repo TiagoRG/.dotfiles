@@ -3,6 +3,7 @@ set clipboard+=unnamed
 set number
 set relativenumber
 set signcolumn=auto
+set colorcolumn=0
 set cursorline
 
 set smartindent
@@ -18,9 +19,6 @@ set scrolloff=10
 set wildmenu
 
 let g:mapleader=" "
-
-syntax on
-colorscheme onedark
 
 nnoremap <leader>w :w<CR>
 
@@ -61,3 +59,4 @@ augroup END
 
 
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'

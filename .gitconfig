@@ -13,9 +13,12 @@
 	excludesfile = /home/tiagorg/.gitignore
 [alias]
     commit = commit -S
+	pr = pull --rebase
 [commit]
 	gpgsign = true
 [tag]
 	gpgsign = true
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true
