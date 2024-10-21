@@ -22,7 +22,7 @@ def main():
             sys.exit(1)
         try:
             with open("/root/secrets.txt", "a") as secrets_file:
-                secrets_file.write(f"{sys.argv[2]},{sys.argv[3]}\n")
+                secrets_file.write(f"{sys.argv[2]};{sys.argv[3]}\n")
         except PermissionError:
             print("Permission denied")
             sys.exit(1)
@@ -30,7 +30,7 @@ def main():
     try:
         with open("/root/secrets.txt", "r") as secrets_file:
             secrets_file_lines = secrets_file.readlines()
-            secrets = [(str(i+1), secrets_file_lines[i].split(",")[0], secrets_file_lines[i].split(",")[1]) for i in range(len(secrets_file_lines))]
+            secrets = [(str(i+1), secrets_file_lines[i].split(";")[0], secrets_file_lines[i].split(";")[1]) for i in range(len(secrets_file_lines))]
 
             if sys.argv[1] == "list":
                 for secret in secrets:

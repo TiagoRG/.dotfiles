@@ -70,6 +70,8 @@ augroup END
 " 	autocmd VimEnter * silent !echo -ne "\e[2 q"
 " augroup END
 
+let g:highlightedyank_highlight_duration = 100
+
 call plug#begin()
 
 Plug 'joshdick/onedark.vim'
@@ -81,6 +83,8 @@ Plug 'github/copilot.vim'
 Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-surround'
+
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 

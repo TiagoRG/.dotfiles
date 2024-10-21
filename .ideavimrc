@@ -57,6 +57,9 @@ augroup SearchHighlight
 	autocmd CmdlineChanged /,\? :nnoremap <buffer> <Esc> :noh<CR>
 augroup END
 
+let g:highlightedyank_highlight_duration = 100
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+
