@@ -5,9 +5,27 @@
 # NEOVIM FOR THE WIN!
 export EDITOR=nvim
 alias vim='nvim'
-alias v='vim . && ref'
 alias vi='/usr/bin/vim'
-alias iv='export CPATH=$(pwd)/include:$CPATH && nvim . && ref'
+v() {
+    local VENV_DIR=$(find ~+ -type d -name "*env" | head -n 1)
+    local INCLUDE_DIRS=$(find ~+ -type d -name "include")
+
+    if [ -n "$VENV_DIR" ]; then
+        source "$VENV_DIR/bin/activate"
+    fi
+    if [ -n "$INCLUDE_DIRS" ]; then
+        for dir in $INCLUDE_DIRS; do
+            export CPATH=$dir:$CPATH
+        done
+    fi
+
+    nvim .
+
+    if [ -n "$VENV_DIR" ]; then
+        deactivate
+    fi
+    echo -e -n "\x1b[\x35 q"
+}
 
 export PF_INFO="ascii title os shell editor pkgs uptime memory"
 
@@ -224,8 +242,8 @@ precmd() {
 
     # Print a new line before the prompt, but only if it is not the first line
     if [ "$NEWLINE_BEFORE_PROMPT" = yes ]; then
-        if [ "$(cat ~/.zsh/.zsh_clear)" = "y" ]; then
-            echo "n" > ~/.zsh/.zsh_clear
+        if [ "$(cat /home/tiagorg/.dotfiles/.zsh/.zsh_clear)" = "y" ]; then
+            echo "n" > /home/tiagorg/.dotfiles/.zsh/.zsh_clear
         else
             print ""
         fi
@@ -291,6 +309,7 @@ alias ref='echo -e -n "\x1b[\x35 q"'
 alias grepf='grep -sirnIE'
 alias mkjava='javac -d bin/ src/**/*.java'
 alias core='echo "core.%e.%p" | sudo tee /proc/sys/kernel/core_pattern'
+alias log-watcher='journalctl -n $(($(tput lines) - 1)) -fu'
 
 source /home/tiagorg/.dotfiles/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/tiagorg/.dotfiles/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -301,9 +320,13 @@ eval "$(zoxide init --cmd cd zsh)"
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
+# export PATH=/home/tiagorg/.local/share/gem/ruby/3.3.0/bin:$PATH
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export PATH=/home/tiagorg/.nvm/versions/node/v22.5.0/bin:$PATH
+function nvm-init() {
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
 
 # Set up path to check personal bin, include and lib directory
 export PATH=/home/tiagorg/.dotfiles/.local/bin:$PATH
