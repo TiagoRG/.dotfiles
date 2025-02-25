@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Get the current mute status using pactl
+status=$(pactl get-sink-mute @DEFAULT_SINK@ | grep -q 'yes' && echo 'muted' || echo 'unmuted')
+
+if [ "$status" = "unmuted" ]; then
+    # If the audio is unmuted, mute it
+    pactl set-sink-mute @DEFAULT_SINK@ 1
+    echo "Volume muted."
+else
+    # If the audio is muted, unmute it
+    pactl set-sink-mute @DEFAULT_SINK@ 0
+    echo "Volume unmuted."
+fi
