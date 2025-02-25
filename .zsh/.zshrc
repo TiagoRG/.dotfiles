@@ -339,3 +339,6 @@ export LD_LIBRARY_PATH=/home/tiagorg/.dotfiles/.local/lib:$LD_LIBRARY_PATH
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 
 eval "$(fzf --zsh)"
+
+export CLASSPATH=".:/usr/local/lib/antlr-4.13.2-complete.jar:/usr/local/lib/ST-4.3.4.jar"
+export ANTLR4_PATH="/usr/local/lib"

@@ -86,4 +86,7 @@ return require('packer').startup(function(use)
 
     -- Little friend
     use("github/copilot.vim")
+
+    -- Temp
+    use("dylon/vim-antlr")
 end)

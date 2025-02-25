@@ -5,7 +5,7 @@ require("tabset").setup({
     },
     languages = {
         {
-            filetypes = { "html", "json", "yaml", "xml", "markdown", "bash", "sh", "zsh" },
+            filetypes = { "cmake", "html", "json", "yaml", "xml", "markdown", "bash", "sh", "zsh" },
             config = {
                 tabwidth = 2
             }

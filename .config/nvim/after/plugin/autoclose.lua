@@ -9,9 +9,9 @@ require("autoclose").setup({
         ["]"] = { escape = true, close = false, pair = "[]", disabled_filetypes = {} },
         ["}"] = { escape = true, close = false, pair = "{}", disabled_filetypes = {} },
 
-        ['"'] = { escape = true, close = true, pair = '""', disabled_filetypes = {"gitcommit", "tex", "asciidoc"} },
-        ["'"] = { escape = true, close = true, pair = "''", disabled_filetypes = {"gitcommit", "tex", "asciidoc"} },
-        ["`"] = { escape = true, close = true, pair = "``", disabled_filetypes = {"gitcommit", "tex", "asciidoc"} },
+        ['"'] = { escape = true, close = true, pair = '""', disabled_filetypes = {"markdown", "gitcommit", "tex", "asciidoc"} },
+        ["'"] = { escape = true, close = true, pair = "''", disabled_filetypes = {"markdown", "gitcommit", "tex", "asciidoc"} },
+        ["`"] = { escape = true, close = true, pair = "``", disabled_filetypes = {"markdown", "gitcommit", "tex", "asciidoc"} },
 
         ["$"] = { escape = true, close = true, pair = "$$", enabled_filetypes = {"tex"} },
     },

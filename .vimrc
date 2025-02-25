@@ -90,3 +90,4 @@ call plug#end()
 
 syntax on
 colorscheme rosepine
+au BufRead,BufNewFile *.g4 set filetype=antlr4
