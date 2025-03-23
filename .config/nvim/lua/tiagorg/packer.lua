@@ -47,7 +47,8 @@ return require('packer').startup(function(use)
     use "folke/trouble.nvim"
     use "stevearc/aerial.nvim"
     use 'numToStr/Comment.nvim'
-    use 'm4xshen/autoclose.nvim'
+    use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
