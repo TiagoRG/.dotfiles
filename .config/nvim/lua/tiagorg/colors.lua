@@ -47,7 +47,23 @@ LoadColors()
 vim.cmd([[autocmd ColorScheme * lua OnColorschemeChanged()]])
 
 vim.api.nvim_create_user_command("TransparentBackground", function(opts)
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end, {})
+    if (opts.args == "on") then
+        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    else
+        vim.api.nvim_set_hl(0, "Normal", {})
+        vim.api.nvim_set_hl(0, "NormalFloat", {})
+    end
+end, {
+    nargs = 1,
+    complete = function()
+        return { "on", "off" }
+    end,
+    desc = "Toggle transparent background"
+})
+
+vim.api.nvim_create_user_command('Theme', function(opts)
+  vim.cmd('colorscheme ' .. opts.args)
+end, { nargs = 1, complete = 'color' })
+
 

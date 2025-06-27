@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.mouse = "a"
+vim.g.mouse = "ar"
 
 vim.opt.updatetime = 50
 vim.opt.compatible = false
