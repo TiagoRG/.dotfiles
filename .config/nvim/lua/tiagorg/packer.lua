@@ -14,8 +14,8 @@ return require('packer').startup(function(use)
         as = 'rose-pine'
     }
     use {
-      'daltonmenezes/aura-theme',
-      rtp = 'packages/neovim'
+        'daltonmenezes/aura-theme',
+        rtp = 'packages/neovim'
     }
 
     -- Essentials
@@ -50,6 +50,7 @@ return require('packer').startup(function(use)
     }
     use "folke/trouble.nvim"
     use "stevearc/aerial.nvim"
+    use "lewis6991/satellite.nvim"
     use 'numToStr/Comment.nvim'
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
