@@ -21,7 +21,7 @@ require('lualine').setup {
         -- lualine_a = { 'fileformat', 'mode' },
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename', 'aerial' },
+        lualine_c = { { 'filename', path = 1 }, 'aerial' },
         lualine_x = { 'filesize', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'selectioncount', 'location' }
@@ -29,7 +29,7 @@ require('lualine').setup {
     inactive_sections = {
         lualine_a = { 'fileformat' },
         lualine_b = { 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
+        lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'filesize', 'filetype'},
         lualine_y = {},
         lualine_z = { 'progress', 'location' }
