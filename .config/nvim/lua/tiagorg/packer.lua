@@ -13,10 +13,6 @@ return require('packer').startup(function(use)
         'rose-pine/neovim',
         as = 'rose-pine'
     }
-    use {
-        'daltonmenezes/aura-theme',
-        rtp = 'packages/neovim'
-    }
 
     -- Essentials
     use {
@@ -92,8 +88,5 @@ return require('packer').startup(function(use)
 
     -- Little friend
     use("github/copilot.vim")
-
-    -- Temp
-    use("dylon/vim-antlr")
-    use("akinsho/flutter-tools.nvim")
+    use("CopilotC-Nvim/CopilotChat.nvim")
 end)

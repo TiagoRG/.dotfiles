@@ -8,7 +8,6 @@ require("mason-lspconfig").setup {
         "docker_compose_language_service",
         "dockerls",
         "jsonls",
-        "jdtls",
         "lua_ls",
         "pyright",
         "ts_ls"

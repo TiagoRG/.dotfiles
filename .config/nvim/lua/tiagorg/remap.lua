@@ -46,4 +46,3 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>so ~/.config/nvim/lua/tiagorg/packer.lu
 
 vim.keymap.set("n", "<C-q>", "<cmd>qa<CR>")
 vim.keymap.set("n", "<A-t>", "<cmd>tabnew<CR><cmd>NvimTreeFocus<CR>")
-vim.keymap.set("n", "<S-Tab>", "<C-w>w")
